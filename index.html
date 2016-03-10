@@ -370,8 +370,7 @@
 
       
         
-          
-            <h3 id="Shell简介"><a href="#Shell简介" class="headerlink" title="Shell简介"></a>Shell简介</h3><p>shell是一个用c语言编写的程序，它是用户使用Linux的桥梁，shell既是一种命令语言，又是一种程序设计语言。<br><br>Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。<br><br>Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。</p>
+          <h3 id="Shell简介"><a href="#Shell简介" class="headerlink" title="Shell简介"></a>Shell简介</h3><p>shell是一个用c语言编写的程序，它是用户使用Linux的桥梁，shell既是一种命令语言，又是一种程序设计语言。<br><br>Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。<br><br>Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。</p>
 <h3 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h3><p>Shell 脚本（shell script），是一种为shell编写的脚本程序。<br><br>业界所说的shell通常都是指shell脚本，但读者朋友要知道，shell和shell script是两个不同的概念。<br><br>由于习惯的原因，简洁起见，本文出现的”shell编程”都是指shell脚本编程，不是指开发shell自身。</p>
 <h3 id="Shell环境"><a href="#Shell环境" class="headerlink" title="Shell环境"></a>Shell环境</h3><p>Shell编程跟Java、PHP一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了。<br><br>文本编辑器呢，有很多，这个看你个人习惯。<br><br>脚本解释器呢，windows的命令行就可以，Linux的就更不用说了。<br><br>Shell种类：</p>
 <ul>
@@ -382,26 +381,11 @@
 <li>Shell for Root（/sbin/sh）</li>
 <li>……</li>
 </ul>
-<p>下文关注的是bash,也就是Bourne Again Shell,由于易用和免费，Bash在日常工作中被广泛使用。同时，Bash也是大多数Linux系统默认的Shell。<br><br>在一般情况下，人们并不区分 Bourne Shell 和 Bourne Again Shell，所以，像 #!/bin/sh，它同样也可以改为#!/bin/bash。<br><br><i>#!告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。</i></p>
-<h3 id="运行Shell脚本的两种方法"><a href="#运行Shell脚本的两种方法" class="headerlink" title="运行Shell脚本的两种方法"></a>运行Shell脚本的两种方法</h3><h4 id="1、作为可执行程序"><a href="#1、作为可执行程序" class="headerlink" title="1、作为可执行程序"></a>1、作为可执行程序</h4><p>第一个shell脚本</p>
-<pre>
-#!/bin/bash
-echo "Hello World !"
-</pre>
-
-<p>将上面的代码保存为test.sh，并cd到相应目录：</p>
-<pre>
-chmod +x ./test.sh   #使脚本具有执行权限
-./test.sh            #执行脚本
-</pre>
-
-<p><em>注意，一定要写成./test.sh，而不是test.sh，运行其它二进制的程序也一样，直接写test.sh，linux系统会去PATH里寻找有没有叫test.sh的，而只有/bin, /sbin, /usr/bin，/usr/sbin等在PATH里，你的当前目录通常不在PATH里，所以写成test.sh是会找不到命令的，要用./test.sh告诉系统说，就在当前目录找。</em></p>
-<h4 id="2、作为解释器参数"><a href="#2、作为解释器参数" class="headerlink" title="2、作为解释器参数"></a>2、作为解释器参数</h4><p>这种运行方式是，直接运行解释器，其参数就是shell脚本的文件名，如：</p>
-<pre><code>/bin/sh test.sh
-/bin/php test.php
-</code></pre><p>这种方式运行的脚本，不需要在第一行指定解释器信息。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/10/Shell脚本基础教程（一）/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -494,10 +478,9 @@ chmod +x ./test.sh   #使脚本具有执行权限
 
       
         
-          
-            <h3 id="1、What’s-is-gulp"><a href="#1、What’s-is-gulp" class="headerlink" title="1、What’s is gulp?"></a>1、What’s is gulp?</h3><p>gulp是一款基于任务的设计模式自动化工具，通过插件的配合解决全套前端解决方案，如静态页面的压缩、图片压缩、js合并、sass同步编译并压缩css、服务端控制客户端同步刷新等。</p>
+          <h3 id="1、What’s-is-gulp"><a href="#1、What’s-is-gulp" class="headerlink" title="1、What’s is gulp?"></a>1、What’s is gulp?</h3><p>gulp是一款基于任务的设计模式自动化工具，通过插件的配合解决全套前端解决方案，如静态页面的压缩、图片压缩、js合并、sass同步编译并压缩css、服务端控制客户端同步刷新等。</p>
 <p>Gulp是一个构建系统，开发者可以使用它在网站开发过程中自动执行常见任务。Gulp是基于Node.js构建的，因此Gulp源文件和你用来定义任务的Gulp文件都被写进了JavaScript（或者CoffeeScript）里。前端开发工程师还可以用自己熟悉的语言来编写任务去lint JavaScript和CSS、解析模板以及在文件变动时编译LESS文件.</p>
-<p>Gulp是一个可以在<a href="https://github.com/gulpjs/gulp/" target="_blank" rel="external">GitHub</a>上找到的开源项目。</p>
+<p>Gulp是一个可以在<a href="https://github.com/gulpjs/gulp/">GitHub</a>上找到的开源项目。</p>
 <h3 id="2、安装gulp"><a href="#2、安装gulp" class="headerlink" title="2、安装gulp"></a>2、安装gulp</h3><pre><code>1、安装nodejs环境
 2、安装gulp模块（全局安装）
     npm install -g gulp
@@ -517,7 +500,7 @@ chmod +x ./test.sh   #使脚本具有执行权限
 <li><p>构建项目前清除发布环境下的文件（保持发布环境的清洁）</p>
 </li>
 </ul>
-<h5 id="寻找我们所需要的组件（gulp-plugins）："><a href="#寻找我们所需要的组件（gulp-plugins）：" class="headerlink" title="寻找我们所需要的组件（gulp plugins）："></a>寻找我们所需要的组件（<a href="http://gulpjs.com/plugins/" target="_blank" rel="external">gulp plugins</a>）：</h5><ul>
+<h5 id="寻找我们所需要的组件（gulp-plugins）："><a href="#寻找我们所需要的组件（gulp-plugins）：" class="headerlink" title="寻找我们所需要的组件（gulp plugins）："></a>寻找我们所需要的组件（<a href="http://gulpjs.com/plugins/">gulp plugins</a>）：</h5><ul>
 <li>gulp-imagemin: 压缩图片</li>
 <li>gulp-ruby-sass: 支持sass</li>
 <li>gulp-minify-css: 压缩css</li>
@@ -529,247 +512,11 @@ chmod +x ./test.sh   #使脚本具有执行权限
 <li>gulp-clean: 清空文件夹</li>
 <li>gulp-livereload: 服务器控制客户端同步刷新（需配合chrome插件LiveReload及tiny-lr）</li>
 </ul>
-<h5 id="安装所需组件"><a href="#安装所需组件" class="headerlink" title="安装所需组件"></a>安装所需组件</h5><pre><code>npm install gulp-util gulp-imagemin gulp-ruby-sass gulp-minify-css gulp-jshint gulp-uglify gulp-rename gulp-concat gulp-clean gulp-livereload tiny-lr gulp-htmlmin --save-dev
-</code></pre><h5 id="gulp基础语法"><a href="#gulp基础语法" class="headerlink" title="gulp基础语法"></a>gulp基础语法</h5><ul>
-<li>gulp通过gulpfile文件来完成相关任务，因此项目中必须包含gulpfile.js</li>
-<li>gulp有五个方法：src、dest、task、run、watch</li>
-<li>src和dest：指定源文件和处理后文件的路径</li>
-<li>watch：用来监听文件的变化</li>
-<li>task：指定任务</li>
-<li>run：执行任务</li>
-</ul>
-<h5 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h5><pre><code>project(项目名称)
-|–.git 通过git管理项目会生成这个文件夹
-|-.sass-cache 使用了sass之后的缓存目录
-|–node_modules 组件目录
-|–dist 发布环境
-    |–css 样式文件
-        |-online
-            |-wbd 微榜单
-            |-wfc 微房产
-             |-wzp 微招聘
-            |-... 其它项目
-    |–img 图片文件(压缩图片)
-        |-wbd 微榜单
-        |-wfc 微房产
-         |-wzp 微招聘
-        |-... 其它项目
-    |–js js文件夹
-        |-conf boot配置
-        |-lib  库文件夹
-        |-pkg  pkg打包文件夹
-            |-wbd 微榜单
-            |-wfc 微房产
-             |-wzp 微招聘
-            |-... 其它项目
-    |–html 静态文件夹
-|–src 生产环境
-    |–css css文件
-        |-mod 模块文件夹(里边的模块可以使用sass也可以直接写css)
-            |-wzp
-            |-wbd
-            |-...
-    |–img 图片文件
-        |-wzp
-        |-wbd
-        |-...
-    |–js js文件
-        |-conf
-        |-mod
-            |-wzp
-            |-wbd
-            |-...
-    |–html 静态文件夹
-        |-wzp
-        |-wbd
-        |-...
-|–.jshintrc jshint配置文件
-|-config.js 项目配置文件
-|–gulpfile.js gulp任务文件
-</code></pre><h5 id="编写gulp任务"><a href="#编写gulp任务" class="headerlink" title="编写gulp任务"></a>编写gulp任务</h5><p> 引入 gulp及组件</p>
-<pre><code>var gulp = require(&apos;gulp&apos;),                 //基础库
-imagemin = require(&apos;gulp-imagemin&apos;),            //图片压缩
-sass = require(&apos;gulp-ruby-sass&apos;),           //sass支持
-minifycss = require(&apos;gulp-minify-css&apos;),     //css压缩
-jshint = require(&apos;gulp-jshint&apos;),            //js检查
-uglify = require(&apos;gulp-uglify&apos;),            //js压缩
-rename = require(&apos;gulp-rename&apos;),            //重命名
-concat = require(&apos;gulp-concat&apos;),            //合并文件
-clean = require(&apos;gulp-clean&apos;),              //清空文件夹
-htmlmin = require(&apos;gulp-htmlmin&apos;),          //压缩html
-tinylr = require(&apos;tiny-lr&apos;),                //livereload,服务器控制客户端同步刷新（需配合chrome插件LiveReload及tiny-lr）
-server = tinylr(),
-port = 35729,
-livereload = require(&apos;gulp-livereload&apos;),    //livereload
-glob = require(&apos;glob&apos;),                     //匹配文件
-config = require(&apos;./config&apos;);                 //项目配置文件
-</code></pre><p>项目配置文件 config.js</p>
-<pre><code>module.exports = {
-    &quot;workDirName&quot;:&quot;wbd&quot;,
-    &quot;pkgFileName&quot;:&quot;index.js&quot;
-}
-</code></pre><p>自定义开发项目文件夹名字</p>
-<pre><code>var workDirName = config.workDirName,             //wbd、wfc、wzp等等...
-htmlName = config.htmlName,                  //纯静态页，不需要后端rd开发模板的静态文件
-bootFileName = config.jsBootFileName;         //js的boot配置文件,主要用于设置版本号
-pkgFileName = config.pkgFileName;
-</code></pre><p>路径配置对象</p>
-<pre><code>var conf = {
-    htmlSrc:&apos;./src/html/&apos;+workDirName+&apos;/*.html&apos;, //html开发目录
-    htmlDst:&apos;./dist/html/&apos;,                         //html发布目录
-
-    cssSrc:&apos;./src/css/mod/&apos;+workDirName+&apos;/*.css&apos;,   //没使用sass的css
-    sassSrc:&apos;./src/css/mod/&apos;+workDirName+&apos;/*.scss&apos;, //sass目录
-    cssDst:&apos;./dist/css/online/&apos;+workDirName+&apos;/&apos;,    //css发布目录
-
-    imgSrc:&apos;./src/img/&apos;+workDirName+&apos;/*&apos;,
-    imgDst:&apos;./dist/img/&apos;+workDirName+&apos;/&apos;,
-
-    confSrc:&apos;./src/js/conf/&apos;+bootFileName,
-    confDst:&apos;./dist/js/conf/&apos;,
-
-    jsSrc:&apos;./src/js/mod/&apos;+workDirName+&apos;/*.js&apos;,
-    commonSrc:&apos;./src/js/mod/common/*.js&apos;,
-    jsDst:&apos;./dist/js/pkg/&apos;+workDirName+&apos;/&apos;
-}
-</code></pre><p>html处理任务</p>
-<pre><code>gulp.task(&apos;html&apos;,function(){
-
-    glob(conf.htmlSrc,{},function(err,files){
-        if(err){
-            return console.log(err);
-        }
-        for(var i=0,len=files.length;i&lt;len;i++){
-            gulp.src(files[i])
-                .pipe(livereload(server))
-                .pipe(gulp.dest(conf.htmlDst));
-        }
-    });
-
-});
-</code></pre><p>样式处理，不使用sass任务</p>
-<pre><code>gulp.task(&apos;css&apos;,function(){
-
-    glob(conf.cssSrc,{},function(err,files){
-        if(err){
-            return console.log(err);
-        }
-        for(var i=0,len=files.length;i&lt;len;i++){
-            gulp.src(files[i])
-                .pipe(gulp.dest(cssDst))
-                .pipe(rename({suffix:&apos;.min&apos;}))
-                .pipe(minifycss())
-                .pipe(livereload(server))
-                .pipe(gulp.dest(cssDst));
-        }
-    });
-
-});
-</code></pre><p>样式处理 使用sass任务</p>
-<pre><code>gulp.task(&apos;scss&apos;,function(){
-
-    glob(conf.sassSrc,{},function(err,files){
-        if(err){
-            return console.log(err);
-        }
-        for(var i=0,len=files.length;i&lt;len;i++){
-            sass(files[i],{style:&apos;expanded&apos;})
-                .pipe(gulp.dest(conf.cssDst))
-                .pipe(rename({suffix:&apos;.min&apos;}))
-                .pipe(minifycss())
-                .pipe(livereload(server))
-                .pipe(gulp.dest(conf.cssDst));
-        }
-    });
-});
-</code></pre><p>图片处理任务</p>
-<pre><code>gulp.task(&apos;images&apos;,function(){
-
-    glob(conf.imgSrc,{},function(err,files){
-        if(err){
-            return console.log(err);
-        }
-        for(var i=0,len=files.length;i&lt;len;i++){
-            gulp.src(files[i])
-                .pipe(imagemin())
-                .pipe(livereload(server))
-                .pipe(gulp.dest(conf.imgDst));
-        }
-    });
-
-});
-</code></pre><p>js处理任务(这里的任务只能是简单的实现文件的合并，对于require引入模块的方式时，则没办法处理依赖关系，这就需要别的打包工具来配合，如webpack、gulp-requirejs-optimize等模块)</p>
-<pre><code>gulp.task(&apos;js&apos;,function(){
-
-    glob(conf.jsSrc, {}, function(err, files) {
-        if (err) {
-            return console.log(err);
-        }
-        gulp.src([conf.jsSrc, conf.commonSrc])
-            .pipe(concat(pkgFileName))
-            .pipe(gulp.dest(conf.jsDst))
-            .pipe(rename({
-                suffix: &apos;.min&apos;
-            }))
-            .pipe(uglify())
-            .pipe(livereload(server))
-            .pipe(gulp.dest(conf.jsDst));
-    });
-
-});
-</code></pre><p>清空图片、样式、js、html</p>
-<pre><code>gulp.task(&apos;clean&apos;,function(){
-    gulp.src([
-        &apos;./css/online/&apos;+workDirName,  //css
-        &apos;./js/pkg/&apos;+workDirName,      //js
-    ],{read:false}).pipe(clean());
-});
-</code></pre><p>监听任务 运行语句 gulp watch</p>
-<pre><code>gulp.task(&apos;watch&apos;,function(){
-    server.listen(port,function(err){
-        if(err){
-            return console.log(err);
-        }
-
-        gulp.watch(&apos;../mod/base/*.css&apos;, [&apos;css&apos;]);
-          gulp.watch(&apos;../mod/common/*.css&apos;, [&apos;css&apos;]);
-          gulp.watch(&apos;../dev/common/*.css&apos;, [&apos;css&apos;]);
-
-        //监听scss
-        gulp.watch(conf.sassSrc,[&apos;scss&apos;]);
-        gulp.watch(conf.sassMod,[&apos;scss&apos;]);
-
-        //监听css
-        gulp.watch(conf.cssSrc,[&apos;css&apos;]);
-        gulp.watch(conf.cssMod,[&apos;css&apos;]);
-
-
-        //监听js
-        gulp.watch(conf.jsSrc,[&apos;js&apos;]);
-        gulp.watch(conf.commonSrc,[&apos;js&apos;]);
-
-    })
-});
-</code></pre><p>默认任务：清空图片、样式、js并重建 运行语句 gulp 监听文件变化</p>
-<pre><code>gulp.task(&apos;default&apos;,[&apos;clean&apos;],function(){
-    gulp.start(&apos;css&apos;,&apos;scss&apos;,&apos;js&apos;);
-    gulp.start(&apos;watch&apos;);
-});
-</code></pre><h5 id="LiveReload配置"><a href="#LiveReload配置" class="headerlink" title="LiveReload配置"></a>LiveReload配置</h5><ol>
-<li>安装Chrome LiveReload</li>
-<li><p>通过npm安装http-server ，快速建立http服务</p>
-<p> npm install http-server -g</p>
-</li>
-<li><p>通过cd找到发布环境目录dist</p>
-</li>
-<li>运行http-server，默认端口是8080</li>
-<li>访问路径localhost:8080</li>
-<li>再打开一个cmd，通过cd找到项目路径执行gulp，清空发布环境并初始化</li>
-<li>执行监控 gulp</li>
-<li>点击chrome上的LiveReload插件，空心变成实心即关联上，你可以修改css、js、html即时会显示到页面中。</li>
-</ol>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/09/gulp配合组件构建前端开发一体化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
