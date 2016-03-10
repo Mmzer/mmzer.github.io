@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="Shell简介shell是一个用c语言编写的程序，它是用户使用Linux的桥梁，shell既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。">
+<meta name="description" content="Shell&amp;#x7B80;&amp;#x4ECB;shell&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7528;c&amp;#x8BED;&amp;#x8A00;&amp;#x7F16;&amp;#x5199;&amp;#x7684;&amp;#x7A0B;&amp;#x5E8F;&amp;#xFF0C;&amp;#x5B83;&amp;#x662F;&amp;#x7528;&amp;#x6237;&amp;#x4F7F;&amp;#x7528;Linux&amp;#x7684;&amp;#x6865;&amp;#x6881;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell脚本基础教程（一）">
 <meta property="og:url" content="http://yoursite.com/2016/03/10/Shell脚本基础教程（一）/index.html">
 <meta property="og:site_name" content="Mmzer Space">
-<meta property="og:description" content="Shell简介shell是一个用c语言编写的程序，它是用户使用Linux的桥梁，shell既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。">
-<meta property="og:updated_time" content="2016-03-10T10:27:29.345Z">
+<meta property="og:description" content="Shell&amp;#x7B80;&amp;#x4ECB;shell&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7528;c&amp;#x8BED;&amp;#x8A00;&amp;#x7F16;&amp;#x5199;&amp;#x7684;&amp;#x7A0B;&amp;#x5E8F;&amp;#xFF0C;&amp;#x5B83;&amp;#x662F;&amp;#x7528;&amp;#x6237;&amp;#x4F7F;&amp;#x7528;Linux&amp;#x7684;&amp;#x6865;&amp;#x6881;">
+<meta property="og:updated_time" content="2016-03-10T11:46:12.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell脚本基础教程（一）">
-<meta name="twitter:description" content="Shell简介shell是一个用c语言编写的程序，它是用户使用Linux的桥梁，shell既是一种命令语言，又是一种程序设计语言。Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。">
+<meta name="twitter:description" content="Shell&amp;#x7B80;&amp;#x4ECB;shell&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x7528;c&amp;#x8BED;&amp;#x8A00;&amp;#x7F16;&amp;#x5199;&amp;#x7684;&amp;#x7A0B;&amp;#x5E8F;&amp;#xFF0C;&amp;#x5B83;&amp;#x662F;&amp;#x7528;&amp;#x6237;&amp;#x4F7F;&amp;#x7528;Linux&amp;#x7684;&amp;#x6865;&amp;#x6881;">
 
 
 
@@ -270,36 +270,27 @@
       
 
       
-        <h3 id="Shell简介"><a href="#Shell简介" class="headerlink" title="Shell简介"></a>Shell简介</h3><p>shell是一个用c语言编写的程序，它是用户使用Linux的桥梁，shell既是一种命令语言，又是一种程序设计语言。<br><br>Shell 是指一种应用程序，这个应用程序提供了一个界面，用户通过这个界面访问操作系统内核的服务。<br><br>Ken Thompson的sh是第一种Unix Shell，Windows Explorer是一个典型的图形界面Shell。</p>
+        <h3 id="Shell&#x7B80;&#x4ECB;"><a href="#Shell&#x7B80;&#x4ECB;" class="headerlink" title="Shell&#x7B80;&#x4ECB;"></a>Shell&#x7B80;&#x4ECB;</h3><p>shell&#x662F;&#x4E00;&#x4E2A;&#x7528;c&#x8BED;&#x8A00;&#x7F16;&#x5199;&#x7684;&#x7A0B;&#x5E8F;&#xFF0C;&#x5B83;&#x662F;&#x7528;&#x6237;&#x4F7F;&#x7528;Linux&#x7684;&#x6865;&#x6881;&#xFF0C;shell&#x65E2;&#x662F;&#x4E00;&#x79CD;&#x547D;&#x4EE4;&#x8BED;&#x8A00;&#xFF0C;&#x53C8;&#x662F;&#x4E00;&#x79CD;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#x3002;<br><br>Shell &#x662F;&#x6307;&#x4E00;&#x79CD;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x754C;&#x9762;&#xFF0C;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x754C;&#x9762;&#x8BBF;&#x95EE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x7684;&#x670D;&#x52A1;&#x3002;<br><br>Ken Thompson&#x7684;sh&#x662F;&#x7B2C;&#x4E00;&#x79CD;Unix Shell&#xFF0C;Windows Explorer&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x56FE;&#x5F62;&#x754C;&#x9762;Shell&#x3002;</p>
 <a id="more"></a>
-<h3 id="Shell脚本"><a href="#Shell脚本" class="headerlink" title="Shell脚本"></a>Shell脚本</h3><p>Shell 脚本（shell script），是一种为shell编写的脚本程序。<br><br>业界所说的shell通常都是指shell脚本，但读者朋友要知道，shell和shell script是两个不同的概念。<br><br>由于习惯的原因，简洁起见，本文出现的”shell编程”都是指shell脚本编程，不是指开发shell自身。</p>
-<h3 id="Shell环境"><a href="#Shell环境" class="headerlink" title="Shell环境"></a>Shell环境</h3><p>Shell编程跟Java、PHP一样，只要有一个能编写代码的文本编辑器和一个能解释执行的脚本解释器就可以了。<br><br>文本编辑器呢，有很多，这个看你个人习惯。<br><br>脚本解释器呢，windows的命令行就可以，Linux的就更不用说了。<br><br>Shell种类：</p>
+<h3 id="Shell&#x811A;&#x672C;"><a href="#Shell&#x811A;&#x672C;" class="headerlink" title="Shell&#x811A;&#x672C;"></a>Shell&#x811A;&#x672C;</h3><p>Shell &#x811A;&#x672C;&#xFF08;shell script&#xFF09;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x4E3A;shell&#x7F16;&#x5199;&#x7684;&#x811A;&#x672C;&#x7A0B;&#x5E8F;&#x3002;<br><br>&#x4E1A;&#x754C;&#x6240;&#x8BF4;&#x7684;shell&#x901A;&#x5E38;&#x90FD;&#x662F;&#x6307;shell&#x811A;&#x672C;&#xFF0C;&#x4F46;&#x8BFB;&#x8005;&#x670B;&#x53CB;&#x8981;&#x77E5;&#x9053;&#xFF0C;shell&#x548C;shell script&#x662F;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x6982;&#x5FF5;&#x3002;<br><br>&#x7531;&#x4E8E;&#x4E60;&#x60EF;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x7B80;&#x6D01;&#x8D77;&#x89C1;&#xFF0C;&#x672C;&#x6587;&#x51FA;&#x73B0;&#x7684;&#x201D;shell&#x7F16;&#x7A0B;&#x201D;&#x90FD;&#x662F;&#x6307;shell&#x811A;&#x672C;&#x7F16;&#x7A0B;&#xFF0C;&#x4E0D;&#x662F;&#x6307;&#x5F00;&#x53D1;shell&#x81EA;&#x8EAB;&#x3002;</p>
+<h3 id="Shell&#x73AF;&#x5883;"><a href="#Shell&#x73AF;&#x5883;" class="headerlink" title="Shell&#x73AF;&#x5883;"></a>Shell&#x73AF;&#x5883;</h3><p>Shell&#x7F16;&#x7A0B;&#x8DDF;Java&#x3001;PHP&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x80FD;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x7684;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x548C;&#x4E00;&#x4E2A;&#x80FD;&#x89E3;&#x91CA;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;&#x89E3;&#x91CA;&#x5668;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;<br><br>&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x5462;&#xFF0C;&#x6709;&#x5F88;&#x591A;&#xFF0C;&#x8FD9;&#x4E2A;&#x770B;&#x4F60;&#x4E2A;&#x4EBA;&#x4E60;&#x60EF;&#x3002;<br><br>&#x811A;&#x672C;&#x89E3;&#x91CA;&#x5668;&#x5462;&#xFF0C;windows&#x7684;&#x547D;&#x4EE4;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;Linux&#x7684;&#x5C31;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x4E86;&#x3002;<br><br>Shell&#x79CD;&#x7C7B;&#xFF1A;</p>
 <ul>
-<li>Bourne Shell（/usr/bin/sh或/bin/sh）</li>
-<li>Bourne Again Shell（/bin/bash）</li>
-<li>C Shell（/usr/bin/csh）</li>
-<li>K Shell（/usr/bin/ksh）</li>
-<li>Shell for Root（/sbin/sh）</li>
-<li>……</li>
+<li>Bourne Shell&#xFF08;/usr/bin/sh&#x6216;/bin/sh&#xFF09;</li>
+<li>Bourne Again Shell&#xFF08;/bin/bash&#xFF09;</li>
+<li>C Shell&#xFF08;/usr/bin/csh&#xFF09;</li>
+<li>K Shell&#xFF08;/usr/bin/ksh&#xFF09;</li>
+<li>Shell for Root&#xFF08;/sbin/sh&#xFF09;</li>
+<li>&#x2026;&#x2026;</li>
 </ul>
-<p>下文关注的是bash,也就是Bourne Again Shell,由于易用和免费，Bash在日常工作中被广泛使用。同时，Bash也是大多数Linux系统默认的Shell。<br><br>在一般情况下，人们并不区分 Bourne Shell 和 Bourne Again Shell，所以，像 #!/bin/sh，它同样也可以改为#!/bin/bash。<br><br><i>#!告诉系统其后路径所指定的程序即是解释此脚本文件的Shell程序。</i></p>
-<h3 id="运行Shell脚本的两种方法"><a href="#运行Shell脚本的两种方法" class="headerlink" title="运行Shell脚本的两种方法"></a>运行Shell脚本的两种方法</h3><h4 id="1、作为可执行程序"><a href="#1、作为可执行程序" class="headerlink" title="1、作为可执行程序"></a>1、作为可执行程序</h4><p>第一个shell脚本</p>
-<pre>
-#!/bin/bash
-echo "Hello World !"
-</pre>
-
-<p>将上面的代码保存为test.sh，并cd到相应目录：</p>
-<pre>
-chmod +x ./test.sh   #使脚本具有执行权限
-./test.sh            #执行脚本
-</pre>
-
-<p><em>注意，一定要写成./test.sh，而不是test.sh，运行其它二进制的程序也一样，直接写test.sh，linux系统会去PATH里寻找有没有叫test.sh的，而只有/bin, /sbin, /usr/bin，/usr/sbin等在PATH里，你的当前目录通常不在PATH里，所以写成test.sh是会找不到命令的，要用./test.sh告诉系统说，就在当前目录找。</em></p>
-<h4 id="2、作为解释器参数"><a href="#2、作为解释器参数" class="headerlink" title="2、作为解释器参数"></a>2、作为解释器参数</h4><p>这种运行方式是，直接运行解释器，其参数就是shell脚本的文件名，如：</p>
-<pre><code>/bin/sh test.sh
-/bin/php test.php
-</code></pre><p>这种方式运行的脚本，不需要在第一行指定解释器信息。</p>
+<p>&#x4E0B;&#x6587;&#x5173;&#x6CE8;&#x7684;&#x662F;bash,&#x4E5F;&#x5C31;&#x662F;Bourne Again Shell,&#x7531;&#x4E8E;&#x6613;&#x7528;&#x548C;&#x514D;&#x8D39;&#xFF0C;Bash&#x5728;&#x65E5;&#x5E38;&#x5DE5;&#x4F5C;&#x4E2D;&#x88AB;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x3002;&#x540C;&#x65F6;&#xFF0C;Bash&#x4E5F;&#x662F;&#x5927;&#x591A;&#x6570;Linux&#x7CFB;&#x7EDF;&#x9ED8;&#x8BA4;&#x7684;Shell&#x3002;<br><br>&#x5728;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4EBA;&#x4EEC;&#x5E76;&#x4E0D;&#x533A;&#x5206; Bourne Shell &#x548C; Bourne Again Shell&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x50CF; #!/bin/sh&#xFF0C;&#x5B83;&#x540C;&#x6837;&#x4E5F;&#x53EF;&#x4EE5;&#x6539;&#x4E3A;#!/bin/bash&#x3002;<br><br><i>#!&#x544A;&#x8BC9;&#x7CFB;&#x7EDF;&#x5176;&#x540E;&#x8DEF;&#x5F84;&#x6240;&#x6307;&#x5B9A;&#x7684;&#x7A0B;&#x5E8F;&#x5373;&#x662F;&#x89E3;&#x91CA;&#x6B64;&#x811A;&#x672C;&#x6587;&#x4EF6;&#x7684;Shell&#x7A0B;&#x5E8F;&#x3002;</i></p>
+<h3 id="&#x8FD0;&#x884C;Shell&#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;"><a href="#&#x8FD0;&#x884C;Shell&#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;" class="headerlink" title="&#x8FD0;&#x884C;Shell&#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;"></a>&#x8FD0;&#x884C;Shell&#x811A;&#x672C;&#x7684;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;</h3><h4 id="1&#x3001;&#x4F5C;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;"><a href="#1&#x3001;&#x4F5C;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;" class="headerlink" title="1&#x3001;&#x4F5C;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;"></a>1&#x3001;&#x4F5C;&#x4E3A;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</h4><p>&#x7B2C;&#x4E00;&#x4E2A;shell&#x811A;&#x672C;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Hello World !&quot;</span></span><br></pre></td></tr></table></figure>
+<p>&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4FDD;&#x5B58;&#x4E3A;test.sh&#xFF0C;&#x5E76;cd&#x5230;&#x76F8;&#x5E94;&#x76EE;&#x5F55;&#xFF1A;</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./<span class="keyword">test</span>.<span class="keyword">sh</span>   #&#x4F7F;&#x811A;&#x672C;&#x5177;&#x6709;&#x6267;&#x884C;&#x6743;&#x9650;</span><br><span class="line">./<span class="keyword">test</span>.<span class="keyword">sh</span>            #&#x6267;&#x884C;&#x811A;&#x672C;</span><br></pre></td></tr></table></figure>
+<p><em>&#x6CE8;&#x610F;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x5199;&#x6210;./test.sh&#xFF0C;&#x800C;&#x4E0D;&#x662F;test.sh&#xFF0C;&#x8FD0;&#x884C;&#x5176;&#x5B83;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x7A0B;&#x5E8F;&#x4E5F;&#x4E00;&#x6837;&#xFF0C;&#x76F4;&#x63A5;&#x5199;test.sh&#xFF0C;linux&#x7CFB;&#x7EDF;&#x4F1A;&#x53BB;PATH&#x91CC;&#x5BFB;&#x627E;&#x6709;&#x6CA1;&#x6709;&#x53EB;test.sh&#x7684;&#xFF0C;&#x800C;&#x53EA;&#x6709;/bin, /sbin, /usr/bin&#xFF0C;/usr/sbin&#x7B49;&#x5728;PATH&#x91CC;&#xFF0C;&#x4F60;&#x7684;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x901A;&#x5E38;&#x4E0D;&#x5728;PATH&#x91CC;&#xFF0C;&#x6240;&#x4EE5;&#x5199;&#x6210;test.sh&#x662F;&#x4F1A;&#x627E;&#x4E0D;&#x5230;&#x547D;&#x4EE4;&#x7684;&#xFF0C;&#x8981;&#x7528;./test.sh&#x544A;&#x8BC9;&#x7CFB;&#x7EDF;&#x8BF4;&#xFF0C;&#x5C31;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x627E;&#x3002;</em></p>
+<h4 id="2&#x3001;&#x4F5C;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x53C2;&#x6570;"><a href="#2&#x3001;&#x4F5C;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x53C2;&#x6570;" class="headerlink" title="2&#x3001;&#x4F5C;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x53C2;&#x6570;"></a>2&#x3001;&#x4F5C;&#x4E3A;&#x89E3;&#x91CA;&#x5668;&#x53C2;&#x6570;</h4><p>&#x8FD9;&#x79CD;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;&#x662F;&#xFF0C;&#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x5176;&#x53C2;&#x6570;&#x5C31;&#x662F;shell&#x811A;&#x672C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/<span class="keyword">sh</span> <span class="keyword">test</span>.<span class="keyword">sh</span></span><br><span class="line">/bin/php <span class="keyword">test</span>.php</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x7B2C;&#x4E00;&#x884C;&#x6307;&#x5B9A;&#x89E3;&#x91CA;&#x5668;&#x4FE1;&#x606F;&#x3002;</p>
 
       
     </div>
@@ -431,7 +422,7 @@ chmod +x ./test.sh   #使脚本具有执行权限
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -441,7 +432,7 @@ chmod +x ./test.sh   #使脚本具有执行权限
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
