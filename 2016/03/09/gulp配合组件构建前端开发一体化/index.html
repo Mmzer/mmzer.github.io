@@ -1,11 +1,16 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,22 +23,22 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-  
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
-<link rel="stylesheet" type="text/css" href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" />
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.2"/>
 
 
-    <meta name="description" content="默默者，持之久远也！" />
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="gulp 前端构建," />
@@ -42,7 +47,14 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
 
 
 <meta name="description" content="1、What’s is gulp?gulp是一款基于任务的设计模式自动化工具，通过插件的配合解决全套前端解决方案，如静态页面的压缩、图片压缩、js合并、sass同步编译并压缩css、服务端控制客户端同步刷新等。
@@ -60,29 +72,26 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
 Gulp是一个构建系统，开发者可以使用它在网站开发过程中自动执行常见任务。Gulp是基于Node.js构建的，因此Gulp源文件和你用来定义任务的Gulp文件都被写进了JavaScript">
 
 
+
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
-
-
 
   <title> gulp配合组件构建前端开发一体化 | Mmzer Space </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -90,7 +99,16 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
 
 
 
-  <div class="container one-column page-post-detail">
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -119,13 +137,13 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
             首页
           </a>
@@ -135,7 +153,7 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
             分类
           </a>
@@ -145,7 +163,7 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
             
             关于
           </a>
@@ -155,7 +173,7 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
             归档
           </a>
@@ -165,14 +183,13 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
             标签
           </a>
         </li>
       
 
-      
       
     </ul>
   
@@ -185,11 +202,17 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
   
   
 
@@ -212,7 +235,10 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-03-09T20:05:25+08:00" content="2016-03-09">
               2016-03-09
             </time>
@@ -233,18 +259,21 @@ Gulp是一个构建系统，开发者可以使用它在网站开发过程中自�
 
           
 
+          
+          
+
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <span itemprop="articleBody"><h3 id="1、What’s-is-gulp"><a href="#1、What’s-is-gulp" class="headerlink" title="1、What’s is gulp?"></a>1、What’s is gulp?</h3><p>gulp是一款基于任务的设计模式自动化工具，通过插件的配合解决全套前端解决方案，如静态页面的压缩、图片压缩、js合并、sass同步编译并压缩css、服务端控制客户端同步刷新等。</p>
+        <h3 id="1、What’s-is-gulp"><a href="#1、What’s-is-gulp" class="headerlink" title="1、What’s is gulp?"></a>1、What’s is gulp?</h3><p>gulp是一款基于任务的设计模式自动化工具，通过插件的配合解决全套前端解决方案，如静态页面的压缩、图片压缩、js合并、sass同步编译并压缩css、服务端控制客户端同步刷新等。</p>
 <p>Gulp是一个构建系统，开发者可以使用它在网站开发过程中自动执行常见任务。Gulp是基于Node.js构建的，因此Gulp源文件和你用来定义任务的Gulp文件都被写进了JavaScript（或者CoffeeScript）里。前端开发工程师还可以用自己熟悉的语言来编写任务去lint JavaScript和CSS、解析模板以及在文件变动时编译LESS文件.</p>
 <p>Gulp是一个可以在<a href="https://github.com/gulpjs/gulp/" target="_blank" rel="external">GitHub</a>上找到的开源项目。</p>
 <h3 id="2、安装gulp"><a href="#2、安装gulp" class="headerlink" title="2、安装gulp"></a>2、安装gulp</h3><pre><code>1、安装nodejs环境
@@ -517,7 +546,13 @@ pkgFileName = config.pkgFileName;
 <li>执行监控 gulp</li>
 <li>点击chrome上的LiveReload插件，空心变成实心即关联上，你可以修改css、js、html即时会显示到页面中。</li>
 </ol>
-</span>
+
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -567,27 +602,27 @@ pkgFileName = config.pkgFileName;
     </div>
   </div>
 
- </div>
 
-        
-            <!-- 多说热评文章-->
-            <p>热评文章</p>
-            <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-        
-
-        
-          <div class="comments" id="comments">
-            
-              <div class="ds-thread" data-thread-key="2016/03/09/gulp配合组件构建前端开发一体化/"
-                   data-title="gulp配合组件构建前端开发一体化" data-url="http://yoursite.com/2016/03/09/gulp配合组件构建前端开发一体化/">
-              </div>
-            
           </div>
-        
-      </div>
+          
 
-      
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/09/gulp配合组件构建前端开发一体化/"
+           data-title="gulp配合组件构建前端开发一体化" data-url="http://yoursite.com/2016/03/09/gulp配合组件构建前端开发一体化/">
+      </div>
+    
+  </div>
+
+
+        </div>
         
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -615,10 +650,12 @@ pkgFileName = config.pkgFileName;
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/Mmzer.jpg" alt="Mmzer" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/Mmzer.jpg"
+               alt="Mmzer" />
           <p class="site-author-name" itemprop="name">Mmzer</p>
+          <p class="site-description motion-element" itemprop="description">默默者，持之久远也！</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">默默者，持之久远也！</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -626,20 +663,17 @@ pkgFileName = config.pkgFileName;
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
+          
+          
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">1</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -650,31 +684,41 @@ pkgFileName = config.pkgFileName;
             
               <span class="links-of-author-item">
                 <a href="https://github.com/mmzer" target="_blank">
-                  <i class="fa fa-github"></i> github
+                  
+                    <i class="fa fa-globe"></i> github
+                  
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://www.v2ex.com/member/mmzer" target="_blank">
-                  <i class="fa fa-v2ex"></i> v2ex
+                  
+                    <i class="fa fa-globe"></i> v2ex
+                  
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="https://segmentfault.com/u/mmzer" target="_blank">
-                  <i class="fa fa-segmentfault"></i> segmentfault
+                  
+                    <i class="fa fa-globe"></i> SF社区
+                  
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://www.html-js.com/user" target="_blank">
-                  <i class="fa fa-fe"></i> FE
+                  
+                    <i class="fa fa-globe"></i> 前端乱炖
+                  
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://www.jianshu.com/users/5bbb0e9b4452/latest_articles" target="_blank">
-                  <i class="fa fa-jianshu"></i> jianshu
+                  
+                    <i class="fa fa-globe"></i> 简书
+                  
                 </a>
               </span>
             
@@ -705,14 +749,20 @@ pkgFileName = config.pkgFileName;
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、What’s-is-gulp"><span class="nav-number">1.</span> <span class="nav-text">1、What’s is gulp?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、安装gulp"><span class="nav-number">2.</span> <span class="nav-text">2、安装gulp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、使用gulp"><span class="nav-number">3.</span> <span class="nav-text">3、使用gulp</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前需要的功能有："><span class="nav-number">3.0.1.</span> <span class="nav-text">前需要的功能有：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#寻找我们所需要的组件（gulp-plugins）："><span class="nav-number">3.0.2.</span> <span class="nav-text">寻找我们所需要的组件（gulp plugins）：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#安装所需组件"><span class="nav-number">3.0.3.</span> <span class="nav-text">安装所需组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gulp基础语法"><span class="nav-number">3.0.4.</span> <span class="nav-text">gulp基础语法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#项目目录结构"><span class="nav-number">3.0.5.</span> <span class="nav-text">项目目录结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编写gulp任务"><span class="nav-number">3.0.6.</span> <span class="nav-text">编写gulp任务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LiveReload配置"><span class="nav-number">3.0.7.</span> <span class="nav-text">LiveReload配置</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -720,16 +770,18 @@ pkgFileName = config.pkgFileName;
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Mmzer</span>
 </div>
@@ -741,69 +793,70 @@ pkgFileName = config.pkgFileName;
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
 
- </div>
+
+      </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"mmzer"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-
-
-    
-  
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  
-
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.2" id="motion.global"></script>
-
-
-
-
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.2"></script>
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -883,7 +936,7 @@ pkgFileName = config.pkgFileName;
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -937,7 +990,7 @@ pkgFileName = config.pkgFileName;
 
     $('.post-toc a').on('click', function (e) {
       e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
       var offset = $(targetSelector).offset().top;
       hasVelocity ?
         html.velocity('stop').velocity('scroll', {
@@ -950,30 +1003,55 @@ pkgFileName = config.pkgFileName;
     });
 
     // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
       }
-    }
+    };
   });
 </script>
 
 
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
+  
 
-      motionIntegrator.bootstrap();
-    });
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mmzer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
   </script>
 
+  
+    
+  
+
+
+
+
+
+  
   
   
   <script type="text/x-mathjax-config">
@@ -1002,17 +1080,7 @@ pkgFileName = config.pkgFileName;
 
 
   
-  
 
-  
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+
 </body>
 </html>
