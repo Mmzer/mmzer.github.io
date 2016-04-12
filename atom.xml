@@ -4,9 +4,9 @@
   <subtitle>既然现在没有你的身影，那就让你矗立在远方吧！</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://mmzer.net/"/>
   <updated>2016-04-12T09:59:13.831Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://mmzer.net/</id>
   
   <author>
     <name>Mmzer</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>TortoiseSVN设置比较工具为BeyondCompare</title>
-    <link href="http://yoursite.com/2016/03/23/TortoiseSVN%E8%AE%BE%E7%BD%AE%E6%AF%94%E8%BE%83%E5%B7%A5%E5%85%B7%E4%B8%BABeyondCompare/"/>
-    <id>http://yoursite.com/2016/03/23/TortoiseSVN设置比较工具为BeyondCompare/</id>
+    <link href="http://mmzer.net/2016/03/23/TortoiseSVN%E8%AE%BE%E7%BD%AE%E6%AF%94%E8%BE%83%E5%B7%A5%E5%85%B7%E4%B8%BABeyondCompare/"/>
+    <id>http://mmzer.net/2016/03/23/TortoiseSVN设置比较工具为BeyondCompare/</id>
     <published>2016-03-23T06:56:41.000Z</published>
     <updated>2016-04-12T09:59:13.831Z</updated>
     
@@ -49,19 +49,19 @@
     
     </summary>
     
-      <category term="经验总结" scheme="http://yoursite.com/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+      <category term="经验总结" scheme="http://mmzer.net/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="SVN" scheme="http://yoursite.com/tags/SVN/"/>
+      <category term="SVN" scheme="http://mmzer.net/tags/SVN/"/>
     
-      <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="http://mmzer.net/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>Hexo执行hexo g命令时候报错</title>
-    <link href="http://yoursite.com/2016/03/18/Hexo%E6%89%A7%E8%A1%8Chexo-g%E5%91%BD%E4%BB%A4%E6%97%B6%E5%80%99%E6%8A%A5%E9%94%99/"/>
-    <id>http://yoursite.com/2016/03/18/Hexo执行hexo-g命令时候报错/</id>
+    <link href="http://mmzer.net/2016/03/18/Hexo%E6%89%A7%E8%A1%8Chexo-g%E5%91%BD%E4%BB%A4%E6%97%B6%E5%80%99%E6%8A%A5%E9%94%99/"/>
+    <id>http://mmzer.net/2016/03/18/Hexo执行hexo-g命令时候报错/</id>
     <published>2016-03-18T12:42:27.000Z</published>
     <updated>2016-04-12T09:58:15.177Z</updated>
     
@@ -76,17 +76,17 @@
     
     </summary>
     
-      <category term="经验总结" scheme="http://yoursite.com/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+      <category term="经验总结" scheme="http://mmzer.net/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://mmzer.net/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>shell脚本基础（三）</title>
-    <link href="http://yoursite.com/2016/03/18/shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89/"/>
-    <id>http://yoursite.com/2016/03/18/shell脚本基础（三）/</id>
+    <link href="http://mmzer.net/2016/03/18/shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%89%EF%BC%89/"/>
+    <id>http://mmzer.net/2016/03/18/shell脚本基础（三）/</id>
     <published>2016-03-18T11:55:58.000Z</published>
     <updated>2016-04-12T09:58:40.272Z</updated>
     
@@ -183,17 +183,17 @@
     
     </summary>
     
-      <category term="学习笔记" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://mmzer.net/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Shell编程" scheme="http://yoursite.com/tags/Shell%E7%BC%96%E7%A8%8B/"/>
+      <category term="Shell编程" scheme="http://mmzer.net/tags/Shell%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Jade学习笔记</title>
-    <link href="http://yoursite.com/2016/03/15/Jade%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://yoursite.com/2016/03/15/Jade学习笔记/</id>
+    <link href="http://mmzer.net/2016/03/15/Jade%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://mmzer.net/2016/03/15/Jade学习笔记/</id>
     <published>2016-03-15T09:36:45.000Z</published>
     <updated>2016-04-12T09:58:27.857Z</updated>
     
@@ -285,19 +285,19 @@
     
     </summary>
     
-      <category term="学习笔记" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://mmzer.net/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Jade" scheme="http://yoursite.com/tags/Jade/"/>
+      <category term="Jade" scheme="http://mmzer.net/tags/Jade/"/>
     
-      <category term="模板引擎" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
+      <category term="模板引擎" scheme="http://mmzer.net/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   
   <entry>
     <title>hexo的nextT主题中代码高亮问题</title>
-    <link href="http://yoursite.com/2016/03/10/hexo%E7%9A%84nextT%E4%B8%BB%E9%A2%98%E4%B8%AD%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2016/03/10/hexo的nextT主题中代码高亮问题/</id>
+    <link href="http://mmzer.net/2016/03/10/hexo%E7%9A%84nextT%E4%B8%BB%E9%A2%98%E4%B8%AD%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE%E9%97%AE%E9%A2%98/"/>
+    <id>http://mmzer.net/2016/03/10/hexo的nextT主题中代码高亮问题/</id>
     <published>2016-03-10T11:52:15.000Z</published>
     <updated>2016-04-12T09:57:58.881Z</updated>
     
@@ -328,21 +328,21 @@
     
     </summary>
     
-      <category term="经验总结" scheme="http://yoursite.com/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
+      <category term="经验总结" scheme="http://mmzer.net/categories/%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+      <category term="hexo" scheme="http://mmzer.net/tags/hexo/"/>
     
-      <category term="nextT" scheme="http://yoursite.com/tags/nextT/"/>
+      <category term="nextT" scheme="http://mmzer.net/tags/nextT/"/>
     
-      <category term="代码高亮" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
+      <category term="代码高亮" scheme="http://mmzer.net/tags/%E4%BB%A3%E7%A0%81%E9%AB%98%E4%BA%AE/"/>
     
   </entry>
   
   <entry>
     <title>Shell脚本基础（二）</title>
-    <link href="http://yoursite.com/2016/03/10/Shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
-    <id>http://yoursite.com/2016/03/10/Shell脚本基础教程（二）/</id>
+    <link href="http://mmzer.net/2016/03/10/Shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+    <id>http://mmzer.net/2016/03/10/Shell脚本基础教程（二）/</id>
     <published>2016-03-10T09:06:00.000Z</published>
     <updated>2016-04-12T09:58:51.528Z</updated>
     
@@ -424,17 +424,17 @@
     
     </summary>
     
-      <category term="学习笔记" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://mmzer.net/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Shell编程" scheme="http://yoursite.com/tags/Shell%E7%BC%96%E7%A8%8B/"/>
+      <category term="Shell编程" scheme="http://mmzer.net/tags/Shell%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Shell脚本基础（一）</title>
-    <link href="http://yoursite.com/2016/03/10/Shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://yoursite.com/2016/03/10/Shell脚本基础教程（一）/</id>
+    <link href="http://mmzer.net/2016/03/10/Shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://mmzer.net/2016/03/10/Shell脚本基础教程（一）/</id>
     <published>2016-03-10T08:38:56.000Z</published>
     <updated>2016-04-12T09:58:57.294Z</updated>
     
@@ -467,17 +467,17 @@
     
     </summary>
     
-      <category term="学习笔记" scheme="http://yoursite.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="学习笔记" scheme="http://mmzer.net/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Shell编程" scheme="http://yoursite.com/tags/Shell%E7%BC%96%E7%A8%8B/"/>
+      <category term="Shell编程" scheme="http://mmzer.net/tags/Shell%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>gulp配合组件构建前端开发一体化</title>
-    <link href="http://yoursite.com/2016/03/09/gulp%E9%85%8D%E5%90%88%E7%BB%84%E4%BB%B6%E6%9E%84%E5%BB%BA%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%80%E4%BD%93%E5%8C%96/"/>
-    <id>http://yoursite.com/2016/03/09/gulp配合组件构建前端开发一体化/</id>
+    <link href="http://mmzer.net/2016/03/09/gulp%E9%85%8D%E5%90%88%E7%BB%84%E4%BB%B6%E6%9E%84%E5%BB%BA%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%80%E4%BD%93%E5%8C%96/"/>
+    <id>http://mmzer.net/2016/03/09/gulp配合组件构建前端开发一体化/</id>
     <published>2016-03-09T12:05:25.000Z</published>
     <updated>2016-04-12T09:57:11.953Z</updated>
     
@@ -616,12 +616,12 @@
     
     </summary>
     
-      <category term="前端开发" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端开发" scheme="http://mmzer.net/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="gulp" scheme="http://yoursite.com/tags/gulp/"/>
+      <category term="gulp" scheme="http://mmzer.net/tags/gulp/"/>
     
-      <category term="前端构建" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
+      <category term="前端构建" scheme="http://mmzer.net/tags/%E5%89%8D%E7%AB%AF%E6%9E%84%E5%BB%BA/"/>
     
   </entry>
   
