@@ -1,0 +1,1003 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="css,前端开发,视觉格式化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mmzer-云端听雨" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x6C34;&amp;#x5E73;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;
+&amp;#x6C34;&amp;#x5E73;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x6709;&amp;#x4E03;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x7EC4;&amp;#x6210;:
+
+margin-left
+padding-left
+border-left
+width
+border-right
+padd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css的margin值auto在水平格式化下的探究">
+<meta property="og:url" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/index.html">
+<meta property="og:site_name" content="Mmzer-云端听雨">
+<meta property="og:description" content="&amp;#x6C34;&amp;#x5E73;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;
+&amp;#x6C34;&amp;#x5E73;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x6709;&amp;#x4E03;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x7EC4;&amp;#x6210;:
+
+margin-left
+padding-left
+border-left
+width
+border-right
+padd">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image0.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image1.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image2.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image3.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image4.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image5.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image6.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image7.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image8.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image9.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image10.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image11.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image12.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image13.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image14.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image15.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image16.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image17.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image18.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image19.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image20.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image21.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image22.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image23.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image24.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image25.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image26.png">
+<meta property="og:image" content="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/image27.png">
+<meta property="og:updated_time" content="2016-06-14T08:58:28.150Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css的margin值auto在水平格式化下的探究">
+<meta name="twitter:description" content="&amp;#x6C34;&amp;#x5E73;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;
+&amp;#x6C34;&amp;#x5E73;&amp;#x683C;&amp;#x5F0F;&amp;#x5316;&amp;#x6709;&amp;#x4E03;&amp;#x4E2A;&amp;#x5C5E;&amp;#x6027;&amp;#x7EC4;&amp;#x6210;:
+
+margin-left
+padding-left
+border-left
+width
+border-right
+padd">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> css的margin值auto在水平格式化下的探究 | Mmzer-云端听雨 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mmzer-云端听雨</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">既然现在没有你的身影，那就让你矗立在远方吧！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                css的margin值auto在水平格式化下的探究
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-14T16:17:45+08:00" content="2016-06-14">
+              2016-06-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/经验总结/" itemprop="url" rel="index">
+                    <span itemprop="name">经验总结</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/14/css的margin值auto在水平格式化下的探究/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/css的margin值auto在水平格式化下的探究/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;"><a href="#&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;" class="headerlink" title="&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;"></a>&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;</h3><blockquote>
+<p>&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x6709;&#x4E03;&#x4E2A;&#x5C5E;&#x6027;&#x7EC4;&#x6210;:</p>
+<ul>
+<li>margin-left</li>
+<li>padding-left</li>
+<li>border-left</li>
+<li>width</li>
+<li>border-right</li>
+<li>padding-right</li>
+<li>margin-right</li>
+</ul>
+<p>&#x800C;&#x4E14;<strong>&#x4E03;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x7684;&#x603B;&#x548C;&#x8981;&#x7B49;&#x4E8E;&#x7236;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x5EA6;&#x3002;</strong></p>
+</blockquote>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x503C;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;width,margin-left&#x548C;margin-right&#xFF1B;</p>
+<p>&#x5982;&#x679C;&#x8FD9;&#x4E09;&#x4E2A;&#x503C;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;auto&#xFF0C;&#x800C;&#x4F59;&#x4E0B;&#x7684;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7279;&#x5B9A;&#x7684;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x7684;&#x5C5E;&#x6027;&#x4F1A;&#x81EA;&#x52A8;&#x786E;&#x5B9A;&#x6240;&#x9700;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;<strong>&#x5143;&#x7D20;&#x6846;&#x7684;&#x5BBD;&#x5EA6;&#x7B49;&#x4E8E;&#x7236;&#x5143;&#x7D20;&#x3002;</strong></p>
+<a id="more"></a>
+<h3 id="demo&#x63A2;&#x7A76;"><a href="#demo&#x63A2;&#x7A76;" class="headerlink" title="demo&#x63A2;&#x7A76;"></a>demo&#x63A2;&#x7A76;</h3><p>html:</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image0.png" alt=""></p>
+<p>css:</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image1.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x8BBE;&#x7F6E;&#x5B50;&#x5143;&#x7D20;&#x7684;margin-left&#x503C;&#x4E3A;auto&#xFF0C;&#x90A3;&#x4E48;&#x5DE6;&#x8FB9;&#x8DDD;&#x5219;&#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x6027;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;200px;</p>
+<p>&#x8868;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image2.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image3.png" alt=""></p>
+<p>&#x601D;&#x8003;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x628A;&#x4E09;&#x4E2A;&#x503C;&#x90FD;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x5B9A;&#x503C;&#x5462;&#xFF1F;&#x7ED3;&#x679C;&#x4F1A;&#x600E;&#x6837;&#xFF1F;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image4.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x8868;&#x73B0;&#x51FA;&#x5982;&#x4E0B;&#x7ED3;&#x679C;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image5.png" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image6.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF1A;</p>
+<blockquote>
+<p>&#x867D;&#x7136;&#x53F3;&#x8FB9;&#x8DDD;&#x786E;&#x5B9E;&#x662F;&#x5199;&#x7740;100px&#xFF0C;&#x4F46;&#x662F;&#x7528;css&#x7684;&#x672F;&#x8BED;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x51E0;&#x4E2A;&#x683C;&#x5F0F;&#x5316;&#x5C5E;&#x6027;&#x8FC7;&#x5206;&#x53D7;&#x9650;&#xFF08;overconstrained&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x7528;&#x6237;&#x4EE3;&#x7406;&#x4F1A;&#x628A;&#x53F3;&#x8FB9;&#x8DDD;&#x91CD;&#x7F6E;&#x4E3A;auto&#xFF0C;&#x4E5F;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#xFF0C;&#x8FD9;&#x4E00;&#x4E2A;&#x5757;&#x7EA7;&#x5143;&#x7D20;&#x624D;&#x53EF;&#x4EE5;&#x5145;&#x6EE1;&#x4E00;&#x6574;&#x884C;&#xFF08;&#x5BBD;&#x5EA6;&#x7B49;&#x4E8E;&#x5305;&#x542B;&#x5757;&#x7684;&#x5BBD;&#x5EA6;&#xFF09;</p>
+</blockquote>
+<p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#x4E3A;&#x5B9A;&#x503C;&#xFF0C;&#x5BBD;&#x5EA6;&#x4E3A;auto&#x53C8;&#x4F1A;&#x5982;&#x4F55;&#x5462;&#xFF1F;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image7.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image8.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x5BBD;&#x5EA6;&#x88AB;&#x91CD;&#x5236;&#x4E3A;&#x4E86;200px;</p>
+<p>&#x4EE5;&#x4E0A;&#x7684;&#x5B9E;&#x9A8C;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x53EA;&#x662F;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;auto&#x503C;&#xFF0C;&#x8981;&#x662F;&#x8FD9;&#x4E09;&#x4E2A;&#x5C5E;&#x6027;&#x4E2D;&#x4E0D;&#x6B62;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;auto&#x5462;&#xFF1F;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image9.png" alt=""></p>
+<p>&#x5148;&#x8BBE;&#x7F6E;&#x5DE6;&#x53F3;&#x8FB9;&#x8DDD;&#x4E3A;auto&#xFF0C;&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image10.png" alt=""></p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image11.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x7528;&#x6237;&#x4EE3;&#x7406;&#x81EA;&#x52A8;&#x7684;&#x8BA1;&#x7B97;&#x4E86;&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#xFF0C;&#x8BA9;&#x5176;&#x586B;&#x6EE1;&#x7236;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x5EA6;&#xFF0C;&#x8868;&#x73B0;&#x51FA;&#x6765;&#x7684;&#x6548;&#x679C;&#x5462;&#x5C31;&#x662F;&#x6C34;&#x5E73;&#x5C45;&#x4E2D;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x4EEC;&#x5E38;&#x5E38;&#x5728;&#x5E03;&#x5C40;&#x65F6;&#x5019;&#x5E38;&#x7528;&#x7684;<strong><em>&#x5C45;&#x4E2D;&#x5BF9;&#x9F50;</em></strong>&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x4E0D;&#x540C;&#x4E8E;&#x4F7F;&#x7528;text-align&#x65F6;&#x5019;&#x7684;&#x5C45;&#x4E2D;&#xFF0C;text-align&#x53EA;&#x5E94;&#x7528;&#x4E8E;&#x5757;&#x7EA7;&#x5143;&#x7D20;&#x7684;&#x5185;&#x8054;&#x5185;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x4EC5;&#x4EC5;&#x8BBE;&#x7F6E;text-align&#x503C;&#x4E3A;center&#x65F6;&#x5019;&#x5E76;&#x4E0D;&#x80FD;&#x4F7F;&#x5143;&#x7D20;&#x5C45;&#x4E2D;&#x3002;</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">text</span>-<span class="keyword">align</span>&#xFF1A;center;</span><br></pre></td></tr></table></figure>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image12.png" alt=""></p>
+<p>&#x8868;&#x73B0;&#x548C;&#x76D2;&#x6A21;&#x578B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image13.png" alt=""></p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image14.png" alt=""></p>
+<p>&#x56DE;&#x5230;&#x6B63;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x5916;&#x8FB9;&#x8DDD;&#x548C;width&#x4E3A;auto&#x5462;&#xFF0C;&#x53C8;&#x4F1A;&#x6709;&#x600E;&#x6837;&#x7684;&#x8868;&#x73B0;&#xFF1F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image15.png" alt=""></p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image16.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image17.png" alt=""></p>
+<p>&#x518D;&#x770B;&#x4E00;&#x4E0B;&#x53F3;&#x8FB9;&#x8DDD;&#x7684;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image18.png" alt=""></p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image19.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image20.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x503C;&#x7684;&#x5916;&#x8FB9;&#x8DDD;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E86;0&#xFF0C;width&#x503C;&#x5219;&#x81EA;&#x52A8;&#x586B;&#x5145;&#x4E86;&#x3002;</p>
+<p>&#x90A3;&#x5982;&#x679C;&#x8FD9;&#x4E09;&#x4E2A;&#x503C;&#x90FD;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x5462;&#xFF1F;&#x53C8;&#x4F1A;&#x600E;&#x6837;&#xFF1F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image21.png" alt=""></p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image22.png" alt=""></p>
+<p>&#x6B64;&#x65F6;&#x7684;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image23.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#x90FD;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E86;0px;</p>
+<p><strong>&#x3010;&#x6CE8;&#x610F;&#xFF1A;&#x3011;&#x7531;&#x4E8E;&#x6C34;&#x5E73;&#x5916;&#x8FB9;&#x8DDD;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5408;&#x5E76;&#x73B0;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x7236;&#x5143;&#x7D20;&#x7684;&#x5185;&#x8FB9;&#x8DDD;&#xFF0C;&#x8FB9;&#x8DDD;&#x548C;&#x5916;&#x8FB9;&#x8DDD;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x5176;&#x5B50;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x504F;&#x79FB;&#x3002;</strong></p>
+<p>&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image24.png" alt=""></p>
+<p>&#x8868;&#x73B0;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image25.png" alt=""></p>
+<p>&#x7236;&#x5143;&#x7D20;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image26.png" alt=""></p>
+<p>&#x5B50;&#x5143;&#x7D20;&#x76D2;&#x6A21;&#x578B;&#xFF1A;</p>
+<p><img src="/2016/06/14/css&#x7684;margin&#x503C;auto&#x5728;&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x4E0B;&#x7684;&#x63A2;&#x7A76;/image27.png" alt=""></p>
+<h3 id="&#x5C0F;&#x7ED3;"><a href="#&#x5C0F;&#x7ED3;" class="headerlink" title="&#x5C0F;&#x7ED3;"></a>&#x5C0F;&#x7ED3;</h3><blockquote>
+<ol>
+<li><p>&#x6C34;&#x5E73;&#x683C;&#x5F0F;&#x5316;&#x7684;&#x4E03;&#x4E2A;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x603B;&#x548C;&#x5FC5;&#x987B;&#x7B49;&#x4E8E;&#x5305;&#x542B;&#x5FEB;&#x7684;&#x5BBD;&#x5EA6;&#x3002;</p>
+</li>
+<li><p>&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x503C;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x4E09;&#x4E2A;&#xFF1A;width,margin-left&#x548C;margin-right&#xFF1B;</p>
+</li>
+<li><p>&#x4E09;&#x4E2A;&#x503C;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;auto&#xFF0C;&#x800C;&#x4F59;&#x4E0B;&#x7684;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7279;&#x5B9A;&#x7684;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x8BBE;&#x7F6E;&#x4E3A;auto&#x7684;&#x5C5E;&#x6027;&#x4F1A;&#x81EA;&#x52A8;&#x786E;&#x5B9A;&#x6240;&#x9700;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;&#x5143;&#x7D20;&#x6846;&#x7684;&#x5BBD;&#x5EA6;&#x7B49;&#x4E8E;&#x7236;&#x5143;&#x7D20;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x5DE6;&#x53F3;&#x8FB9;&#x8DDD;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;&#x4E3A;auto&#xFF0C;&#x4E14;&#x6B64;&#x65F6;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x5EA6;&#x56FA;&#x5B9A;&#xFF0C;&#x5219;&#x4F1A;&#x8868;&#x73B0;&#x51FA;&#x6C34;&#x5E73;&#x5C45;&#x4E2D;&#x7684;&#x5E03;&#x5C40;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;width&#x548C;&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#x4E4B;&#x4E00;&#x4E3A;auto&#xFF0C;&#x90A3;&#x4E48;&#x8BBE;&#x7F6E;&#x4E86;auto&#x503C;&#x7684;&#x5916;&#x8FB9;&#x8DDD;&#x88AB;&#x91CD;&#x7F6E;&#x4E3A;0</p>
+</li>
+<li><p>&#x4E09;&#x4E2A;&#x503C;&#x90FD;&#x4E3A;auto&#x65F6;&#xFF0C;width&#x81EA;&#x52A8;&#x586B;&#x5145;&#x5305;&#x542B;&#x5FEB;&#xFF0C;&#x5DE6;&#x53F3;&#x5916;&#x8FB9;&#x8DDD;&#x91CD;&#x7F6E;&#x4E3A;0</p>
+</li>
+<li><p>&#x6C34;&#x5E73;&#x5916;&#x8FB9;&#x8DDD;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x5408;&#x5E76;&#x73B0;&#x8C61;&#x3002;</p>
+</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/css/" rel="tag">#css</a>
+          
+            <a href="/tags/前端开发/" rel="tag">#前端开发</a>
+          
+            <a href="/tags/视觉格式化/" rel="tag">#视觉格式化</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/08/js监听关闭浏览器事件并弹窗/" rel="next" title="js监听关闭浏览器事件并弹窗">
+                <i class="fa fa-chevron-left"></i> js监听关闭浏览器事件并弹窗
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/14/css的margin值auto在水平格式化下的探究/"
+           data-title="css的margin值auto在水平格式化下的探究" data-url="http://mmzer.net/2016/06/14/css的margin值auto在水平格式化下的探究/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/Mmzer.jpg"
+               alt="Mmzer" />
+          <p class="site-author-name" itemprop="name">Mmzer</p>
+          <p class="site-description motion-element" itemprop="description">默默者，持之久远也！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mmzer" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mmzer" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SF社区
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.html-js.com/user" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 前端乱炖
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://zhangyihua.me/" target="_blank">yihua</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#水平格式化"><span class="nav-number">1.</span> <span class="nav-text">水平格式化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo探究"><span class="nav-number">2.</span> <span class="nav-text">demo探究</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mmzer</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mmzer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+
+</body>
+</html>
