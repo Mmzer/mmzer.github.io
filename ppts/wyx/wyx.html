@@ -1,0 +1,414 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.1
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>微营销PC编辑器前端设计 - By 陈伟</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide fill" style="background-image:url('./img/bg1.png')"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>微营销PC编辑器前端设计</h1>
+<h2>演讲者：陈伟</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>需求描述</h2>
+<p>在PC上提供一个界面，用户可以根据预设的多样化的模板进行简单的编辑操作，生成风格迥异的微系列H5页面，可以更加全面的满足微系列用户移动营销的需求。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>实现思路</h2>
+<img src="./img/img2.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>H5模板标准模板组成部分</h2>
+
+</hgroup><article>
+
+<ul class="rollIn">
+<li><strong>页面头部</strong>（meta标签、title、引用的样式文件、domain设置等）</li>
+<li><strong>页面公共组件容器</strong>（音乐按钮，loading页面，箭头和一些按钮等）</li>
+<li><strong>页面列表容器</strong>（子页面模板，有众多子模板）</li>
+<li><strong>底部公共js脚本</strong></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide" data-transition="zoomin"><section class="slide-wrapper"><article>
+<h2>模板页结构示例</h2>
+<img src="./img/img3.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h1>子模板组成部分和结构</h1>
+
+</hgroup><article>
+
+<ul class="rollIn">
+<li>每个子模板由一对<code>&lt;section&gt;&lt;/section&gt;</code>标签定义</li>
+<li>每个子模板的背景图片支持更换，为自定义属性<code>bg-rel</code></li>
+<li>用自定义属性<code>subtemplateid</code>来标识每一个子模板</li>
+<li>每个子模板上有多个组件，由公共类名<code>widget</code>来标识。</li>
+<li>每个子模板的样式写成内联方式（<strong>方便以后扩展</strong>）</li>
+<li>每个子模板组件定义有特定的属性（style、data-type、model等，方便页面解析子模板生成对应编辑框）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>子页面组件化</h2>
+<p>组件即一个可以独立运行的单元，提高代码的复用性<br></p>
+<p>模板页的每一页就是一个组件，可以提出来拿到别处运行
+<img src="./img/page.png" alt=""></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>模板页，模板子页和用户作品的关系</h2>
+<img src="./img/img4.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>PC编辑器</h1>
+<h2>可简单编辑标题和段落文字，背景图、标题和段落的动态效果等则预先设定，无法修改。后期可扩展为可修改背景图和动态效果等。</h2>
+
+</article></section></slide>
+<slide class="slide" data-transition="zoomin"><section class="slide-wrapper"><article>
+<h2>模块</h2>
+<img src="./img/img6.png" alt="">
+<div class="columns-2" style="margin-top: 40px;">
+    <img src="./img/music.png">
+    <img src="./img/editor.png">
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>架构设计</h2>
+<img src="./img/img7.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>数据绑定</h2>
+<img src="./img/data.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>模块划分</h2>
+<div class="columns-2">
+    <div>
+        <p>css模块划分</p>
+        <img src="./img/css.png">
+    </div>    <div>
+        <p>js模块划分</p>
+        <img src="./img/js.png">
+    </div>
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>模块依赖关系</h2>
+<img src="./img/relative.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>可优化的点</h2>
+
+</hgroup><article>
+
+<ul>
+<li>首屏数据展示</li>
+<li>按点击顺序添加页面</li>
+<li>使用更便捷的框架来实现（Vue.js or React.js）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide" data-transition="zoomin"><section class="slide-wrapper"><hgroup>
+<h2>模块化开发</h2>
+
+</hgroup><article>
+
+<ul class="rollIn">
+<li>模块化规范-AMD</li>
+<li>RequireJS</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>模块化规范</h2>
+
+</hgroup><article>
+
+<ul class="rollIn">
+<li>AMD</li>
+<li>CMD</li>
+<li>CommonJS</li>
+<li>ECMAScript 6模块化</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>AMD模块化语法</h2>
+<pre><code class="javascript">define(
+    module_id /*字符串，可选*/, 
+    [dependencies] /*数组，可选*/, 
+    factory  /*用来模块初始化的函数或对象*/
+);
+</code></pre>
+
+</hgroup><article>
+
+<h3 style="text-align: left;">说明：</h3>
+
+<ul>
+<li>module_id 字符串。它指的是定义中模块的名字，可选。如果没有提供该参数，模块的名字应该默认为模块加载器请求的指定脚本的名字；一般情况下，不用写。</li>
+<li>[dependencies] 数组。定义中模块所依赖模块的数组。依赖参数是可选的，如果忽略此参数，它应该默认为[&quot;require&quot;, &quot;exports&quot;, &quot;module&quot;]。</li>
+<li>factory function函数或对象。factory，为模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值。 如果是函数，函数的参数是取决于[dependencies]数组，参数依次是依赖数组里面定义的参数，顺序也是按照依赖数组的顺序。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+
+<h3 style="text-align: left;">举例说明：</h3>
+
+<pre><code class="javascript">//foo.js
+define([],function(){
+    console.log(&quot;foo.js&quot;);
+    function test(){
+        console.log(&quot;test()&quot;);
+    }
+});
+
+//bar.js
+define([],function(){
+    console.log(&quot;bar.js&quot;);
+});
+
+
+//dep.js
+define([&quot;foo&quot;],function(foo){
+    console.log(&quot;dep.js&quot;);
+    foo.test();
+});
+
+//main.js
+define([&quot;bar&quot;,&quot;dep&quot;],function(bar,dep){
+    console.log(&quot;main.js&quot;);
+});
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>require</h2>
+<pre><code class="javascript">require(
+    [dependencies] /*数组*/, 
+    action function  /*用来执行逻辑的函数,可选*/
+);
+</code></pre>
+
+</hgroup><article>
+
+<h3 style="text-align: left;">说明：</h3>
+
+<ul>
+<li>[dependencies] 数组。依赖的模块的数组，每一个数组成员是一个依赖模块的名字</li>
+<li>action function 函数。需要执行逻辑的函数，函数参数是依赖模块，顺序按照依赖数组的顺序。</li>
+</ul>
+<h3 style="text-align: left;">举例说明：</h3>
+
+<pre><code class="javascript">require([&#39;pkg/wyx/wyx_pcedit&#39;],function(wyx_pcedit){
+    wyx_pcedit.test();
+});
+
+//或
+require([&#39;pkg/wyx/wyx_pcedit&#39;]);
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2><a href="http://requirejs.org/" target="_blank">RequireJS</a></h2>
+<p>RequireJS是一个非常小巧的JavaScript模块载入框架，是AMD规范最好的实现者之一</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>正常编写方式</h2>
+<p style="text-align: left">index.html</p>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;span&gt;body&lt;/span&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p style="text-align: left">a.js</p>
+
+<pre><code class="javascript">function fun1(){
+  alert(&quot;it works&quot;);
+}
+
+fun1();
+</code></pre>
+</p>
+<p style="text-align: left">可能你更喜欢这样写：</p>
+
+<pre><code class="javascript">(function(){
+    function fun1(){
+      alert(&quot;it works&quot;);
+    }
+
+    fun1();
+})()
+</code></pre>
+<h3 style="text-align: left;"><strong>这样写会出现JS阻塞浏览器渲染的问题！</strong></h3>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>requirejs写法</h2>
+<p style="text-align: left">index.html</p>
+
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;require.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            require([&quot;a&quot;]);
+        &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;span&gt;body&lt;/span&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p style="text-align: left">a.js</p>
+
+<pre><code class="javascript">define(function(){
+    function fun1(){
+      alert(&quot;it works&quot;);
+    }
+
+    fun1();
+})
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>使用requirejs的优点</h2>
+<ul>
+<li>防止js加载阻塞页面渲染</li>
+<li><p>使用程序调用的方式加载js，防出现如下丑陋的场景:</p>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;b.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;c.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;d.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;e.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;f.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;g.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;h.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;i.js&quot;&gt;&lt;/script&gt;
+  &lt;script type=&quot;text/javascript&quot; src=&quot;j.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><hgroup>
+<h2>模块化的好处</h2>
+
+</hgroup><article>
+
+<ul class="rollIn">
+<li>可以快速定位问题所在。</li>
+<li>灵活架构，焦点分离</li>
+<li>方便打包合并文件</li>
+<li>方便模块间组合、分解</li>
+<li>方便单个模块功能调试、升级</li>
+<li>多人协作互不干扰</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Thank you !</h1>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.1</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'cards',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./css/demo.css">
+
+<!--placeholder-->
+</body>
+</html>
