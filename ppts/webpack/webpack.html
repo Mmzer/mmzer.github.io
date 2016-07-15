@@ -1,0 +1,562 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.1
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>webpack构建工具 - By 陈伟</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.moon.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide fill" style="background-image:url('./img/bg.jpg')"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>webpack构建工具</h1>
+<h2>演讲者：Mmzer</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Webpack是什么？</h1>
+<p> Webpack是德国开发者Tobias Koppers开发的模块加载器,它将根据模块的依赖关系进行静态分析然后将这些模块按照指定的规则生成对应的静态资源。
+<img src="./webpack.jpg" alt="">
+<strong>设计理念：一切皆模块！</strong></p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>已有的模块化工具的现状</h1>
+<p>市面上已经存在的模块管理和打包工具并不适合大型的项目，尤其单页面 Web 应用程序。最紧迫的原因是如何在一个大规模的代码库中，维护各种模块资源的分割和存放，维护它们之间的依赖关系，并且无缝的将它们整合到一起生成适合浏览器端请求加载的静态资源。</p>
+<p>前端工程化的建设，早期的做法是使用Grunt、Gulp等构建工具。但本质上它们只是一个任务调度器，将功能独立的任务拆解出来，按需组合运行任务。如果要完成前端工程化，这两者配置门槛很高，每一个任务都需要开发者自行使用插件解决，而且对于资源的依赖管理能力太弱。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>已有的模块化工具的弱项:</h1>
+<ul>
+<li>将依赖树拆分成按需加载的块</li>
+<li>初始化加载的耗时尽量少</li>
+<li>各种静态资源都可以视作模块</li>
+<li>将第三方库整合成模块的能力</li>
+<li>可以自定义打包逻辑的能力</li>
+<li>适合大项目，无论是单页还是多页的Web应用</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>为什么要用Webpack？</h1>
+<p>在 Webpack 当中, 所有的资源都被当作是模块, js, css, 图片等等。因此, Webpack 当中 js 可以引用 css, css 中可以嵌入图片 dataUrl。对应各种不同文件类型的资源, Webpack 有对应的模块 loader来加载。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>主要特性</h1>
+<ul>
+<li>代码拆分（同步依赖和异步依赖）</li>
+<li>智能解析（AMD，CMD，CommonJS，ES6模块，第三方库等）</li>
+<li>Loader（可用于转换其它类型的静态资源为一个原生的JavaScript模块）</li>
+<li>插件系统（丰富的开源插件，也可以自己开发插件）</li>
+<li>快速编译（使用异步 I/O 和多级缓存）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>安装</h1>
+<p>需要Node.js v0.6 以上支持，使用npm管理插件</p>
+<pre><code>$ npm install webpack -g
+</code></pre><p>如果需要使用 Webpack 开发工具，要单独安装：</p>
+<pre><code>$ npm install webpack-dev-server --save-dev
+</code></pre><p>另外一些常用的loader，webpack没有内置的插件也需要通过npm进行安装。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>启动webpack</h1>
+<p>切换到有<code>webpack.config.js</code>的目录然后选择性运行以下命令:</p>
+<pre><code># webpack 开发时的编译（不压缩代码）
+$ webpack
+
+# webpack -p 发布时的编译（压缩代码）
+$ webpack -p
+
+# webpack --watch 进行开发过程持续的增量编译
+$ webpack --watch
+
+# webpack -d 来生成 SourceMaps
+$ webpack -d
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>配置文件</h1>
+<p><strong>webpack.config.js</strong></p>
+<ul>
+<li>node.js形式的模块，返回一个json格式的配置信息对象</li>
+<li>通过<code>--config</code>选项来指定配置文件</li>
+</ul>
+<pre><code>var webpack = require(&#39;webpack&#39;);
+var commonsPlugin = new webpack.optimize.CommonsChunkPlugin(&#39;common.js&#39;);
+var PATH = &quot;E:/DevelopmentCode/GitHub/webpack/getstart&quot;
+
+module.exports = {
+    context:__dirname+&#39;/app&#39; //处理entry的基本路径（绝对路径）
+    //entry:&quot;./entry.js&quot;,
+    entry:{
+        entry1:&quot;./entry1.js&quot;,
+        entry2:[&quot;./entry2.js&quot;,&quot;./entry3.js&quot;]
+    },
+    output:{
+        path:PATH,
+        filename:&quot;[name].bundle.js&quot;
+    },
+    module:{
+        loaders:[
+            {
+                test:/\.css/,
+                loader:&quot;style!css&quot;
+            }
+        ]
+    },
+    plugins:[
+        commonsPlugin
+    ],
+};
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>配置文件说明：</h1>
+<ul>
+<li><code>entry</code>：配置打包文件的入口（包括生成文件的名字和所调用的资源），如果是一个字符串（一般是一个路径），则把其下所有的资源打包成一个模块，供给页面调用；如果是一个数组，则可以提供多个入口，这对多页面的时候尤其有用！</li>
+<li><code>output</code>：影响输出和编译，告诉webpack怎么去把编译出来的文件写入到硬盘上。<strong>虽然有多个入口文件，但只指定一个输出配置。</strong>path定义了输出的文件夹，filename则定义了打包结果文件的名称，filename里面的[name]会由entry中的键（这里是entry1和entry2）替换。</li>
+<li><code>module</code>：定义了模块的处理逻辑。loaders则定义一系列的加载器，加载通过正则匹配到的各种资源。</li>
+<li><code>plugins</code>：定义了需要使用的插件。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<p class="flexbox vleft"><span>根据不同的入口，生成单个或多页面需要的文件: <span></p>
+<ul>
+<li><p>单个入口：</p>
+<pre><code class="javascript">{
+    entry: &#39;./src/app.js&#39;,
+    output: {
+      filename: &#39;bundle.js&#39;,
+      path: &#39;./built&#39;
+    }
+  }
+
+  // writes to disk: ./built/bundle.js
+</code></pre>
+</li>
+<li><p>多个入口（entry是一个数组或者使用了CommonsChunkPlugin插件）,需要使用以下替换，确保每个文件有一个唯一的名称：</p>
+<ul>
+<li><code>[name]</code> 由entry指定的分支名字替换</li>
+<li><code>[hash]</code> 由编译生成的哈希值替换</li>
+<li><p><code>[chunkhash]</code> 由entry指定分支对应的哈希值替换</p>
+<pre><code class="javascript">{
+    entry: {
+      app: &#39;./src/app.js&#39;,
+      search: &#39;./src/search.js&#39;
+    },
+    output: {
+      filename: &#39;[name].js&#39;,
+      path: __dirname + &#39;/built&#39;
+    }
+}
+
+// writes to disk: ./built/app.js, ./built/search.js
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Loader</h1>
+<ul>
+<li>转换其它类型的文件为Webpack可以处理的JavaScript模块(模块和资源的转换器)</li>
+<li>Loader本身是运行在 node.js 环境中的 JavaScript 模块。</li>
+<li>Loader本身是一个函数，接受源文件作为参数，返回转换的结果。</li>
+<li>loader一般以xxx-loader的方式命名，xxx 代表了这个loader要做的转换功能，比如json-loader</li>
+<li>在引用loader的时候可以使用全名 json-loader，或者使用短名 json</li>
+<li>Loader可以在require()引用模块的时候添加，也可以在 webpack 全局配置中进行绑定，还可以通过命令行的方式使用</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Loader特性</h1>
+<ul>
+<li>通过管道方式链式调用（每个 loader 可以把资源转换成任意格式并传递给下一个 loader ，但是最后一个 loader 必须返回 JavaScript）</li>
+<li>同步或异步执行</li>
+<li>可以接受参数，以此来传递配置项给 loader。例如：&#39;url-loader?limit=1024&#39;</li>
+<li>可以通过文件扩展名（或正则表达式）绑定给不同类型的文件</li>
+<li>除了通过package.json的main指定，通常的模块也可以导出一个loader来使用</li>
+<li>Loader 可以访问配置</li>
+<li>插件系统</li>
+<li>可以分发出附加的任意文件</li>
+<li>是基于nodejs和npm的,管理方便</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>Loader使用</h1>
+<ul>
+<li><p>可以直接通过require使用：</p>
+<pre><code>var moduleWithOneLoader = require(&quot;my-loader!./my-awesome-module&quot;);
+
+  require(&quot;./loaders/my-loader!./my-awesome-module&quot;);
+
+  require(&quot;style-loader!css-loader!less-loader!./my-styles.less&quot;);
+</code></pre></li>
+<li><p>可以在配置文件里边写：</p>
+<pre><code>module: {
+      loaders: [
+          { test: /\.css$/, loader: &quot;style!css&quot; }
+      ]
+  }
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>webpack资源管理</h1>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>资源的获取和引用</h1>
+<ul>
+<li>同时提供了对CommonJS、AMD和ES6模块化标准的支持，对于非前三种标准开发的模块，webpack提供了<a href="http://webpack.github.io/docs/shimming-modules.html" target="_blank">shimming modules</a>的功能。</li>
+<li>webpack内部实现了一套资源加载机制，也即独特的Loader</li>
+<li><p>样式，图片等资源，都可以通过require引用到入口文件里：</p>
+<pre><code>// a.js
+  // 加载css资源
+  require(&#39;../css/a.css&#39;);
+
+  // 加载其他js资源
+  var foo = require(&#39;./widgets/foo&#39;);
+  var bar = require(&#39;./widgets/bar&#39;);
+
+  // 加载图片资源
+  var loadingImg = require(&#39;../img/loading.png&#39;);
+
+  var img = document.createElement(&#39;img&#39;);
+
+  img.src = loadingImg;
+</code></pre></li>
+<li>还支持使用require()获取资源时在path前面指定loader：<pre><code>require(&quot;!style!css!less!bootstrap/less/bootstrap.less&quot;);
+  // “bootstrap.less”这个资源会先被&quot;less-loader&quot;处理，
+  // 其结果又会被&quot;css-loader&quot;处理，接着是&quot;style-loader&quot;
+  // 可类比pipe操作
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>资源的依赖处理</h1>
+<pre><code>webpackJsonp([0], {
+    /***/0:
+    /***/function(module, exports, __webpack_require__) {
+
+        __webpack_require__(6);
+
+        var foo = __webpack_require__(25);
+        var bar = __webpack_require__(26);
+
+        var loadingImg = __webpack_require__(24);
+        var img = document.createElement(&#39;img&#39;);
+
+        img.src = loadingImg;
+    },
+
+    /***/6:
+    /***/function(module, exports, __webpack_require__) {
+        ...
+    },
+
+    /***/7:
+    /***/function(module, exports, __webpack_require__) {
+        ...
+    },
+
+    /***/24:
+    /***/function(module, exports) {
+        ...
+    },
+
+    /***/25:
+    /***/function(module, exports) {
+        ...
+    },
+
+    /***/26:
+    /***/function(module, exports) {
+        ...
+    }
+});
+</code></pre><p>即把加载的所有资源重新生成一个JavaScript模块，并给它编号，并通过模块的id来处理依赖。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>资源的编译输出</h1>
+<p>webpack的三个概念：模块（module）、入口文件（entry）、分块（chunk）</p>
+<p>module指各种资源文件，如js、css、图片、svg、scss、less等等，一切资源皆被当做模块。</p>
+<p>webpack编译输出的文件包括以下2种：</p>
+<ul>
+<li>entry：入口，可以是一个或者多个资源合并而成，由html通过script标签引入</li>
+<li>chunk：被entry所依赖的额外的代码块，同样可以包含一个或者多个文件</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>chunk分块的作用</h1>
+<p><strong>按需加载</strong>：需要用到的时候我们才异步加载我们需要的模块。这部分的代码一般不用打包到入口文件里边。</p>
+<p>webpack提供了非常好的支持，即<a href="http://webpack.github.io/docs/code-splitting.html" target="_blank">code splitting</a>，即使用<code>require.ensure()</code>作为代码分割的标识。</p>
+<p>有需求场景如下：</p>
+<pre><code>var component = getUrlQuery(&#39;component&#39;);
+
+if(&#39;dialog&#39; === component) { //加载dialog_[hash].chunk.js
+    require.ensure([], function(require) {
+        var dialog = require(&#39;./components/dialog&#39;);
+        // todo ...
+    });
+}
+
+if(&#39;toast&#39; === component) { //加载toast_[hash].chunk.js
+    require.ensure([], function(require) {
+        var toast = require(&#39;./components/toast&#39;);
+        // todo ...
+    });
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>公共代码的处理</h1>
+<ul>
+<li>多个页面共同调用的js，可以使用CommonsChunkPlugin插件对指定的chunks进行公共模块的提取：<pre><code>var chunks = Object.keys(entries);
+  plugins: [
+      new CommonsChunkPlugin({
+          name: &#39;vendors&#39;, // 将公共模块提取，生成名为`vendors`的chunk
+          chunks: chunks,
+          minChunks: chunks.length // 提取所有entry共同依赖的模块
+      })
+  ],
+</code></pre></li>
+<li><p>组件的封装：</p>
+<pre><code>// js/components/component-x.js
+  require(&#39;./component-x.css&#39;);
+
+  // @see https://github.com/okonet/ejs-loader
+  var template = require(&#39;./component-x.ejs&#39;);
+  var str = template({foo: &#39;bar&#39;});
+
+  function someMethod() {}
+
+  exports.someMethod = someMethod;
+</code></pre><p>  使用组件：</p>
+<pre><code>// js/a.js
+  import {someMethod} from &quot;./components/component-x&quot;;
+  someMethod();
+</code></pre></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>资源实时更新</h1>
+<p>webpack提供了强大的热更新支持，即HMR(hot module replace)。</p>
+<p>HMR简单说就是webpack启动一个本地webserver（webpack-dev-server），负责处理由webpack生成的静态资源请求。注意webpack-dev-server是把所有资源存储在内存的，所以你会发现在本地没有生成对应的chunk访问却正常。</p>
+<img src="./hmr.jpg" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>webpack-dev-server使用</h1>
+<p>webpack-dev-server 是一个轻量的node.js Express服务器, 它采用了webpack-dev-middleware来进行webpack打包。它的运行环境是通过socket.io来连接到服务器的。socket.io会向客户端发出编译状态的信息，然后这些信息会对这些事件作出反应。</p>
+<blockquote>
+<p>webpack-dev-server 支持多种模式去自动刷新你的页面:</p>
+<ul>
+<li>iframe 模式 (当页面发生变化时，以iframe的形式嵌入在页面，然后自动刷新页面)</li>
+<li>inline 模式 (当页面发生变化时，webpack-dev-server 会把更新内容内嵌到打包文件中，然后自动刷新页面)</li>
+</ul>
+<p>这两种模式都支持热加载组件(打包文件通知浏览器更新部分更改内容，而不用整个页面重新刷新)。热加载组建能在运行的app中动态地更新、注入新增加或更改的代码。</p>
+</blockquote>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>配置文件中使用webpack-dev-server</h1>
+<p>配置:</p>
+<pre><code>module.exports = {
+    //...
+
+    //webpack-dev-server 插件配置
+    devServer:{
+        historyApiFallback:true,
+        hot:true,
+        inline:true,
+        progress:true
+    },
+
+    //...
+};
+</code></pre><p>开一个cmd窗口使用命令：</p>
+<pre><code>$ webpack-dev-server --hot --inline
+</code></pre><p>也可以在package.json的scripts项上配置:</p>
+<pre><code>...
+
+&quot;scripts&quot;: {
+    &quot;start&quot;: &quot;webpack-dev-server --hot --inline&quot;,
+    ...
+},
+
+  ...
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>node.js使用方式</h1>
+<pre><code>// app.js
+var webpackDevMiddleware = require(&#39;koa-webpack-dev-middleware&#39;);
+var webpack = require(&#39;webpack&#39;);
+var webpackConf = require(&#39;./webpack.config&#39;);
+
+app.use(webpackDevMiddleware(webpack(webpackConf), {
+    contentBase: webpackConf.output.path,
+    publicPath: webpackConf.output.publicPath,
+    hot: true,
+    stats: webpackConf.devServer.stats
+}));
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>资源路径切换</h1>
+<p>由于入口文件是手动使用script引入的，在webpack编译之后入口文件的名称和路径一般会改变，即开发环境和生产环境引用的路径不同。</p>
+<pre><code>// 开发环境
+// a.html
+&lt;script src=&quot;/__build/vendors.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/__build/a.js&quot;&gt;&lt;/script&gt;
+
+
+// 生产环境
+// a.html
+&lt;script src=&quot;http://cdn.site.com/js/460de4b8.vendors.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://cdn.site.com/js/e7d20340.a.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>针对这个情况，webpack提供了HtmlWebpackPlugin插件来处理这个问题。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>html-webpack-plugin使用</h1>
+<p>使用时需要安装依赖:</p>
+<pre><code>$ npm install html-webpack-plugin --save-dev
+</code></pre><p>HtmlWebpackPlugin支持从模板生成html文件，生成的html里边可以正确解决js打包之后的路径、文件名问题，配置示例：</p>
+<pre><code>// webpack.config.js
+output: {
+    ...
+    publicPath: debug ? &#39;/__build/&#39; : &#39;http://cdn.site.com/&#39;
+},
+
+//...
+
+plugins: [
+    new HtmlWebpackPlugin({
+        template: &#39;./src/a.html&#39;,
+        filename: &#39;a&#39;,
+        inject: &#39;body&#39;,
+        chunks: [&#39;vendors&#39;, &#39;a&#39;]
+    })
+]
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>综述</h1>
+<p>webpack目前还在发展中，有一些问题暂时还没法处理：</p>
+<ul>
+<li>sprites图合并</li>
+<li>工程的远程部署</li>
+</ul>
+<p>但是，webpack可以组合各种开源技术栈（gulp，grunt，bower，karma等）。没有复杂的资源依赖配置，工程结构也相对简单和灵活。</p>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h1>参考资料</h1>
+<p><a href="http://webpack.github.io/docs/" target="_blank">webpack官网</a></p>
+<p><a href="https://github.com/webpack/docs" target="_blank">webpack/doc</a></p>
+<p><a href="https://segmentfault.com/a/1190000003499526#articleHeader9" target="_blank">https://segmentfault.com/a/1190000003499526#articleHeader9</a></p>
+<p><a href="http://www.alloyteam.com/2016/01/webpack-use-optimization/" target="_blank">http://www.alloyteam.com/2016/01/webpack-use-optimization/</a></p>
+<p><a href="http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/" target="_blank">http://guowenfh.github.io/2016/03/24/vue-webpack-01-base/</a></p>
+<p><a href="https://segmentfault.com/a/1190000002552008" target="_blank">https://segmentfault.com/a/1190000002552008</a></p>
+<p><a href="http://my.oschina.net/bosscheng/blog/514638" target="_blank">http://my.oschina.net/bosscheng/blog/514638</a></p>
+<p><a href="http://www.cnblogs.com/YikaJ/p/4586703.html?utm_source=tuicool&amp;utm_medium=referral" target="_blank">http://www.cnblogs.com/YikaJ/p/4586703.html?utm_source=tuicool&amp;utm_medium=referral</a></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.1</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'cards',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./css/demo.css">
+
+<!--placeholder-->
+</body>
+</html>
