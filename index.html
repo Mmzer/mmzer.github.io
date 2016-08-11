@@ -228,6 +228,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/11/浏览器如何工作？/" itemprop="url">
+                  浏览器如何工作？
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T19:50:43+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/11/浏览器如何工作？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/浏览器如何工作？/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="&#x4E00;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6784;&#x6210;"><a href="#&#x4E00;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6784;&#x6210;" class="headerlink" title="&#x4E00;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6784;&#x6210;"></a>&#x4E00;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4E3B;&#x8981;&#x6784;&#x6210;</h3><p>&#x7B80;&#x5355;&#x6765;&#x8BF4;&#x6D4F;&#x89C8;&#x5668;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x90E8;&#x5206;&#xFF0C;shell+&#x5185;&#x6838;&#x3002;</p>
+<p>Shell&#x662F;&#x6307;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5916;&#x58F3;&#xFF1A;&#x4F8B;&#x5982;&#x83DC;&#x5355;&#xFF0C;&#x5DE5;&#x5177;&#x680F;&#x7B49;&#x3002;&#x4E3B;&#x8981;&#x662F;&#x63D0;&#x4F9B;&#x7ED9;&#x7528;&#x6237;&#x754C;&#x9762;&#x64CD; &#x4F5C;&#xFF0C;&#x53C2;&#x6570;&#x8BBE;&#x7F6E;&#x7B49;&#x7B49;&#x3002;&#x5B83;&#x662F;&#x8C03;&#x7528;&#x5185;&#x6838;&#x6765;&#x5B9E;&#x73B0;&#x5404;&#x79CD;&#x529F;&#x80FD;&#x7684;&#x3002;</p>
+<p>&#x5185;&#x6838;&#x624D;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6838;&#x5FC3;&#x3002;&#x5185;&#x6838;&#x662F;&#x57FA;&#x4E8E;&#x6807;&#x8BB0;&#x8BED;&#x8A00;&#x663E;&#x793A;&#x5185;&#x5BB9;&#x7684;&#x7A0B;&#x5E8F;&#x6216;&#x6A21;&#x5757;&#x3002;</p>
+<p>&#x5E38;&#x89C1;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x5185;&#x6838;&#x53EF;&#x4EE5;&#x5206;&#x8FD9;&#x56DB;&#x79CD;&#xFF1A;Trident&#x3001;Gecko&#x3001; Presto&#x3001;Webkit&#x3002;</p>
+<p>&#x6D4F;&#x89C8;&#x5668;&#x4E00;&#x822C;&#x7531;&#x4EE5;&#x4E0B;&#x7EC4;&#x4EF6;&#x6784;&#x6210; &#xFF1A;</p>
+<ol>
+<li><strong>&#x7528;&#x6237;&#x754C;&#x9762;</strong>&#xFF1A;&#x6D4F;&#x89C8;&#x5668;&#x8F6F;&#x4EF6;&#x754C;&#x9762;</li>
+<li><strong>&#x6D4F;&#x89C8;&#x5668;&#x5F15;&#x64CE;</strong>&#xFF1A;&#x67E5;&#x8BE2;&#x53CA;&#x64CD;&#x4F5C;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x521B;&#x5EFA;UI&#x540E;&#x7AEF;&#x7EC4;&#x4EF6;&#x7B49;</li>
+<li><strong>&#x6E32;&#x67D3;&#x5F15;&#x64CE;</strong>&#xFF1A;&#x663E;&#x793A;&#x8BF7;&#x6C42;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E5F;&#x5373;&#x6E32;&#x67D3;html&#x6587;&#x6863;</li>
+<li><strong>&#x7F51;&#x7EDC;</strong>&#xFF1A;&#x5B8C;&#x6210;&#x7F51;&#x7EDC;&#x8C03;&#x7528;&#xFF0C;&#x53D1;&#x9001;&#x548C;&#x54CD;&#x5E94;http&#x8BF7;&#x6C42;</li>
+<li><strong>UI&#x540E;&#x7AEF;</strong>&#xFF1A;&#x7ED8;&#x5236;&#x7EC4;&#x5408;&#x6846;&#xFF0C;&#x5BF9;&#x8BDD;&#x6846;&#x7B49;&#xFF0C;&#x5177;&#x6709;&#x4E0D;&#x7279;&#x5B9A;&#x4E8E;&#x67D0;&#x4E2A;&#x5E73;&#x53F0;&#x7684;&#x901A;&#x7528;&#x63A5;&#x53E3;,&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x63A5;&#x53E3;</li>
+<li><strong>JavaScript&#x89E3;&#x91CA;&#x5668;</strong>&#xFF1A;&#x89E3;&#x91CA;&#x6267;&#x884C;JavaScript&#x4EE3;&#x7801;</li>
+<li><strong>&#x6570;&#x636E;&#x5B58;&#x50A8;</strong>&#xFF1A;&#x6D4F;&#x89C8;&#x5668;&#x6301;&#x4E45;&#x5C42;&#xFF0C;cookie&#xFF0C;localStorage&#xFF0C;database&#xFF08;html5&#xFF09;&#x7B49;&#x7B49;</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/浏览器如何工作？/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/14/css的margin值auto在水平格式化下的探究/" itemprop="url">
                   css的margin值auto在水平格式化下的探究
                 </a>
@@ -1335,128 +1465,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/09/gulp配合组件构建前端开发一体化/" itemprop="url">
-                  gulp配合组件构建前端开发一体化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-09T20:05:25+08:00" content="2016-03-09">
-              2016-03-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端开发/" itemprop="url" rel="index">
-                    <span itemprop="name">前端开发</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/09/gulp配合组件构建前端开发一体化/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/09/gulp配合组件构建前端开发一体化/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="1&#x3001;What&#x2019;s-is-gulp"><a href="#1&#x3001;What&#x2019;s-is-gulp" class="headerlink" title="1&#x3001;What&#x2019;s is gulp?"></a>1&#x3001;What&#x2019;s is gulp?</h3><p>gulp&#x662F;&#x4E00;&#x6B3E;&#x57FA;&#x4E8E;&#x4EFB;&#x52A1;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x81EA;&#x52A8;&#x5316;&#x5DE5;&#x5177;&#xFF0C;&#x901A;&#x8FC7;&#x63D2;&#x4EF6;&#x7684;&#x914D;&#x5408;&#x89E3;&#x51B3;&#x5168;&#x5957;&#x524D;&#x7AEF;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x5982;&#x9759;&#x6001;&#x9875;&#x9762;&#x7684;&#x538B;&#x7F29;&#x3001;&#x56FE;&#x7247;&#x538B;&#x7F29;&#x3001;js&#x5408;&#x5E76;&#x3001;sass&#x540C;&#x6B65;&#x7F16;&#x8BD1;&#x5E76;&#x538B;&#x7F29;css&#x3001;&#x670D;&#x52A1;&#x7AEF;&#x63A7;&#x5236;&#x5BA2;&#x6237;&#x7AEF;&#x540C;&#x6B65;&#x5237;&#x65B0;&#x7B49;&#x3002;</p>
-<p>Gulp&#x662F;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x7CFB;&#x7EDF;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x5728;&#x7F51;&#x7AD9;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x5E38;&#x89C1;&#x4EFB;&#x52A1;&#x3002;Gulp&#x662F;&#x57FA;&#x4E8E;Node.js&#x6784;&#x5EFA;&#x7684;&#xFF0C;&#x56E0;&#x6B64;Gulp&#x6E90;&#x6587;&#x4EF6;&#x548C;&#x4F60;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#x7684;Gulp&#x6587;&#x4EF6;&#x90FD;&#x88AB;&#x5199;&#x8FDB;&#x4E86;JavaScript&#xFF08;&#x6216;&#x8005;CoffeeScript&#xFF09;&#x91CC;&#x3002;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x5DE5;&#x7A0B;&#x5E08;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x81EA;&#x5DF1;&#x719F;&#x6089;&#x7684;&#x8BED;&#x8A00;&#x6765;&#x7F16;&#x5199;&#x4EFB;&#x52A1;&#x53BB;lint JavaScript&#x548C;CSS&#x3001;&#x89E3;&#x6790;&#x6A21;&#x677F;&#x4EE5;&#x53CA;&#x5728;&#x6587;&#x4EF6;&#x53D8;&#x52A8;&#x65F6;&#x7F16;&#x8BD1;LESS&#x6587;&#x4EF6;.</p>
-<p>Gulp&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5728;<a href="https://github.com/gulpjs/gulp/">GitHub</a>&#x4E0A;&#x627E;&#x5230;&#x7684;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x3002;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/09/gulp配合组件构建前端开发一体化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1495,7 +1510,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1512,7 +1527,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
