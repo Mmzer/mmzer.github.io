@@ -228,6 +228,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/21/Object-ES5常用方法详解/" itemprop="url">
+                  Object ES5常用方法详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-21T19:00:23+08:00" content="2016-10-21">
+              2016-10-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/21/Object-ES5常用方法详解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/Object-ES5常用方法详解/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create()"></a>Object.create()</h3><p>Object.create&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x62E5;&#x6709;&#x6307;&#x5B9A;&#x539F;&#x578B;&#x548C;&#x82E5;&#x5E72;&#x4E2A;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.<span class="function"><span class="title">create</span><span class="params">(proto,[propertiesObject])</span></span></span><br></pre></td></tr></table></figure>
+<p>&#x53C2;&#x6570;&#xFF1A;</p>
+<p>proto&#xFF1A;object&#x7C7B;&#x578B;&#xFF0C;&#x4F5C;&#x4E3A;&#x65B0;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;</p>
+<p>propertiesObject&#xFF1A;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x6307;&#x5B9A;&#x65B0;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5982;defineProperties&#x4E00;&#x6837;&#x7684;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#x7684;&#x8BFB;&#x5199;&#x5C5E;&#x6027;&#x548C;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7C7B;&#x5F0F;&#x7EE7;&#x627F;&#xFF0C;es6&#x7684;class&#x53C2;&#x6570;&#x5728;&#x7ECF;&#x8FC7;babel&#x7F16;&#x8BD1;&#x4E4B;&#x540E;&#xFF0C;&#x4E5F;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x7EE7;&#x627F;&#x3002;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Shape - &#x7236;&#x7C7B;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.x = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.y = <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Shape.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.x += x;</span><br><span class="line">    <span class="keyword">this</span>.y += y;</span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">&quot;Shape moved.&quot;</span>);</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// Rectangle - &#x5B50;&#x7C7B;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params"></span>) </span>{</span><br><span class="line">  Shape.call(<span class="keyword">this</span>); <span class="comment">//call super constructor.</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Rectangle.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle();</span><br><span class="line"></span><br><span class="line">rect <span class="keyword">instanceof</span> Rectangle <span class="comment">//true.</span></span><br><span class="line">rect <span class="keyword">instanceof</span> Shape <span class="comment">//true.</span></span><br><span class="line"></span><br><span class="line">rect.move(<span class="number">1</span>, <span class="number">1</span>); <span class="comment">//Outputs, &quot;Shape moved.&quot;</span></span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/10/21/Object-ES5常用方法详解/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/18/git常用命令/" itemprop="url">
                   git常用命令
                 </a>
@@ -1344,131 +1469,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/03/10/Shell脚本基础教程（二）/" itemprop="url">
-                  Shell脚本基础（二）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-10T17:06:00+08:00" content="2016-03-10">
-              2016-03-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/10/Shell脚本基础教程（二）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/10/Shell脚本基础教程（二）/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="shell&#x53D8;&#x91CF;"><a href="#shell&#x53D8;&#x91CF;" class="headerlink" title="shell&#x53D8;&#x91CF;"></a>shell&#x53D8;&#x91CF;</h3><h5 id="&#x5B9A;&#x4E49;&#xFF1A;"><a href="#&#x5B9A;&#x4E49;&#xFF1A;" class="headerlink" title="&#x5B9A;&#x4E49;&#xFF1A;"></a>&#x5B9A;&#x4E49;&#xFF1A;</h5><ul>
-<li>&#x9996;&#x4E2A;&#x5B57;&#x7B26;&#x5FC5;&#x987B;&#x4E3A;&#x5B57;&#x6BCD;(a-z,A-Z)</li>
-<li>&#x4E2D;&#x95F4;&#x4E0D;&#x80FD;&#x6709;&#x7A7A;&#x683C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x5212;&#x7EBF;(_)</li>
-<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x6807;&#x70B9;&#x7B26;&#x53F7;</li>
-<li>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;bash&#x91CC;&#x8FB9;&#x7684;&#x5173;&#x952E;&#x5B57;&#xFF08;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;help&#xFF09;&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x4FDD;&#x7559;&#x5173;&#x952E;&#x5B57;</li>
-</ul>
-<p>&#x4F8B;&#x5982;&#xFF1A;</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">def_name=<span class="value"><span class="string">&quot;mmzer&quot;</span></span></span></span><br></pre></td></tr></table></figure>
-<p>&#x6CE8;&#x610F;&#x4E00;&#x70B9;&#xFF1A;&#x53D8;&#x91CF;&#x540D;&#x548C;&#x7B49;&#x53F7;&#x4E4B;&#x95F4;&#x4E0D;&#x80FD;&#x6709;&#x7A7A;&#x683C;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/10/Shell脚本基础教程（二）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1514,7 +1514,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
