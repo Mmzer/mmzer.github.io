@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://mmzer.net/2016/10/21/Object-ES5常用方法详解/index.html">
 <meta property="og:site_name" content="Mmzer">
 <meta property="og:description" content="Object.create()Object.create&amp;#x65B9;&amp;#x6CD5;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x62E5;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;&amp;#x539F;&amp;#x578B;&amp;#x548C;&amp;#x82E5;&amp;#x5E72;&amp;#x4E2A;&amp;#x6307;&amp;#x5B9A;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x5">
-<meta property="og:updated_time" content="2016-10-21T12:20:02.695Z">
+<meta property="og:updated_time" content="2017-02-08T02:24:29.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Object ES5常用方法详解">
 <meta name="twitter:description" content="Object.create()Object.create&amp;#x65B9;&amp;#x6CD5;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x62E5;&amp;#x6709;&amp;#x6307;&amp;#x5B9A;&amp;#x539F;&amp;#x578B;&amp;#x548C;&amp;#x82E5;&amp;#x5E72;&amp;#x4E2A;&amp;#x6307;&amp;#x5B9A;&amp;#x5C5E;&amp;#x6027;&amp;#x7684;&amp;#x5">
@@ -298,9 +298,9 @@
 <p>proto&#xFF1A;object&#x7C7B;&#x578B;&#xFF0C;&#x4F5C;&#x4E3A;&#x65B0;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x539F;&#x578B;</p>
 <p>propertiesObject&#xFF1A;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x6307;&#x5B9A;&#x65B0;&#x521B;&#x5EFA;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5982;defineProperties&#x4E00;&#x6837;&#x7684;&#x5B9A;&#x4E49;&#x5C5E;&#x6027;&#x7684;&#x8BFB;&#x5199;&#x5C5E;&#x6027;&#x548C;&#x679A;&#x4E3E;&#x5C5E;&#x6027;&#x3002;</p>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x7C7B;&#x5F0F;&#x7EE7;&#x627F;&#xFF0C;es6&#x7684;class&#x53C2;&#x6570;&#x5728;&#x7ECF;&#x8FC7;babel&#x7F16;&#x8BD1;&#x4E4B;&#x540E;&#xFF0C;&#x4E5F;&#x662F;&#x4F7F;&#x7528;&#x7684;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x7684;&#x7EE7;&#x627F;&#x3002;</p>
+<a id="more"></a>
 <p>&#x4F8B;&#x5B50;&#xFF1A;</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Shape - &#x7236;&#x7C7B;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.x = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.y = <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Shape.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.x += x;</span><br><span class="line">    <span class="keyword">this</span>.y += y;</span><br><span class="line">    <span class="built_in">console</span>.info(<span class="string">&quot;Shape moved.&quot;</span>);</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// Rectangle - &#x5B50;&#x7C7B;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params"></span>) </span>{</span><br><span class="line">  Shape.call(<span class="keyword">this</span>); <span class="comment">//call super constructor.</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Rectangle.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle();</span><br><span class="line"></span><br><span class="line">rect <span class="keyword">instanceof</span> Rectangle <span class="comment">//true.</span></span><br><span class="line">rect <span class="keyword">instanceof</span> Shape <span class="comment">//true.</span></span><br><span class="line"></span><br><span class="line">rect.move(<span class="number">1</span>, <span class="number">1</span>); <span class="comment">//Outputs, &quot;Shape moved.&quot;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
 <p>&#x5982;&#x679C;&#x5E0C;&#x671B;&#x7EE7;&#x627F;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6DF7;&#x5165;(mixin)&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>)</span>{</span><br><span class="line">	SuperClass.call(<span class="keyword">this</span>);</span><br><span class="line">	OtherClass.call(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MyClass.prototype = <span class="built_in">Object</span>.create(SuperClass.prototype); <span class="comment">//&#x7EE7;&#x627F;</span></span><br><span class="line">mixin(MyClass.prototype,OtherClass.prototype); <span class="comment">//&#x6DF7;&#x5165;&#x65B9;&#x5F0F;</span></span><br><span class="line"></span><br><span class="line">MyClass.prototype.myMethos = {</span><br><span class="line">	...</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <p>mixin&#x51FD;&#x6570;&#x662F;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#xFF0C;&#x4F5C;&#x7528;&#x662F;&#x628A;&#x8D85;&#x7C7B;&#x539F;&#x578B;&#x4E0A;&#x7684;&#x51FD;&#x6570;&#x62F7;&#x8D1D;&#x5230;&#x5B50;&#x7C7B;&#x7C7B;&#x578B;&#x4E0A;&#x3002;&#x5B9E;&#x73B0;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
@@ -372,6 +372,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/08/浏览器从输入网址到显示都发生了些什么？/" rel="prev" title="浏览器从输入网址到显示都发生了些什么？">
+                浏览器从输入网址到显示都发生了些什么？ <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -466,7 +470,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -483,7 +487,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -583,8 +587,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

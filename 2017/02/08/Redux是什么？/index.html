@@ -1,0 +1,955 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="React,Redux," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Mmzer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="redux&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6784;&amp;#x5EFA;&amp;#x5927;&amp;#x578B;react&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x524D;&amp;#x7AEF;&amp;#x67B6;&amp;#x6784;&amp;#xFF0C;&amp;#x7ED3;&amp;#x5408;&amp;#x4E86;flux&amp;#x548C;&amp;#x51FD;&amp;#x6570;&amp;#x5F0F;&amp;#x7F16;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redux是什么？">
+<meta property="og:url" content="http://mmzer.net/2017/02/08/Redux是什么？/index.html">
+<meta property="og:site_name" content="Mmzer">
+<meta property="og:description" content="redux&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6784;&amp;#x5EFA;&amp;#x5927;&amp;#x578B;react&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x524D;&amp;#x7AEF;&amp;#x67B6;&amp;#x6784;&amp;#xFF0C;&amp;#x7ED3;&amp;#x5408;&amp;#x4E86;flux&amp;#x548C;&amp;#x51FD;&amp;#x6570;&amp;#x5F0F;&amp;#x7F16;&amp;#">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/9158841/21874386/a520f22c-d8af-11e6-8d05-2b7eb2ec6182.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/9158841/21874630/22ca4196-d8b1-11e6-9471-b0eb34d25b02.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/9158841/21874643/413f4f04-d8b1-11e6-8abe-e2de1c848fa1.png">
+<meta property="og:image" content="https://cloud.githubusercontent.com/assets/9158841/21874675/736524a4-d8b1-11e6-90fb-f38a8545ae1d.png">
+<meta property="og:updated_time" content="2017-02-08T02:24:51.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redux是什么？">
+<meta name="twitter:description" content="redux&amp;#x662F;&amp;#x4E00;&amp;#x4E2A;&amp;#x6784;&amp;#x5EFA;&amp;#x5927;&amp;#x578B;react&amp;#x5E94;&amp;#x7528;&amp;#x7684;&amp;#x524D;&amp;#x7AEF;&amp;#x67B6;&amp;#x6784;&amp;#xFF0C;&amp;#x7ED3;&amp;#x5408;&amp;#x4E86;flux&amp;#x548C;&amp;#x51FD;&amp;#x6570;&amp;#x5F0F;&amp;#x7F16;&amp;#">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Redux是什么？ | Mmzer </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Mmzer</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">既然现在没有你的身影，那就让你矗立在远方吧！</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Redux是什么？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-08T10:20:09+08:00" content="2017-02-08">
+              2017-02-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端开发/" itemprop="url" rel="index">
+                    <span itemprop="name">前端开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/08/Redux是什么？/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/Redux是什么？/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>redux&#x662F;&#x4E00;&#x4E2A;&#x6784;&#x5EFA;&#x5927;&#x578B;react&#x5E94;&#x7528;&#x7684;&#x524D;&#x7AEF;&#x67B6;&#x6784;&#xFF0C;&#x7ED3;&#x5408;&#x4E86;flux&#x548C;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x601D;&#x60F3;&#x3002;</p>
+<h3 id="flux"><a href="#flux" class="headerlink" title="flux"></a>flux</h3><p>flux&#x5C06;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x5206;&#x6210;&#x56DB;&#x4E2A;&#x90E8;&#x5206;&#xFF1A;</p>
+<ul>
+<li><strong>View</strong> &#x89C6;&#x56FE;&#x5C42;</li>
+<li><strong>Action</strong>  &#x89C6;&#x56FE;&#x5C42;&#x53D1;&#x51FA;&#x7684;&#x6D88;&#x606F;</li>
+<li><strong>Dispatcher</strong> &#x63A5;&#x6536;&#x89C6;&#x56FE;&#x5C42;&#x53D1;&#x51FA;&#x7684;actions&#xFF0C;&#x6267;&#x884C;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li><strong>Store</strong> &#x5B58;&#x653E;&#x5E94;&#x7528;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x53D1;&#x751F;&#x53D8;&#x52A8;&#x65F6;&#xFF0C;&#x66F4;&#x65B0;View</li>
+</ul>
+<p>&#x5404;&#x4E2A;&#x90E8;&#x5206;&#x5173;&#x7CFB;&#x5927;&#x6982;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://cloud.githubusercontent.com/assets/9158841/21874386/a520f22c-d8af-11e6-8d05-2b7eb2ec6182.png" alt="image"></p>
+<a id="more"></a>
+<h3 id="&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;"><a href="#&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;" class="headerlink" title="&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;"></a>&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;</h3><p>&#x4E3E;&#x4F8B;&#xFF1A;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">forEach</span>(<span class="params">array,func</span>)</span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++){</span><br><span class="line">        func(array[i]);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> a = [<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>,<span class="string">&quot;c&quot;</span>];</span><br><span class="line">forEach(a,<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>{print(obj);});</span><br><span class="line">forEach(a,<span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>{print(obj + <span class="number">1</span>);});</span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x8F93;&#x51FA;&#x7ED3;&#x679C;</span></span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">a1</span><br><span class="line">b1</span><br><span class="line">c1</span><br></pre></td></tr></table></figure></p>
+<h3 id="Redux&#x8BBE;&#x8BA1;&#x601D;&#x60F3;"><a href="#Redux&#x8BBE;&#x8BA1;&#x601D;&#x60F3;" class="headerlink" title="Redux&#x8BBE;&#x8BA1;&#x601D;&#x60F3;"></a>Redux&#x8BBE;&#x8BA1;&#x601D;&#x60F3;</h3><ul>
+<li>web&#x5E94;&#x7528;&#x662F;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x673A;&#xFF0C;&#x89C6;&#x56FE;&#x548C;&#x72B6;&#x6001;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x7684;&#x72B6;&#x6001;&#x4FDD;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x91CC;&#x8FB9;&#x3002;</li>
+</ul>
+<h3 id="Redux&#x6982;&#x5FF5;&#x548C;API"><a href="#Redux&#x6982;&#x5FF5;&#x548C;API" class="headerlink" title="Redux&#x6982;&#x5FF5;&#x548C;API"></a>Redux&#x6982;&#x5FF5;&#x548C;API</h3><ul>
+<li><code>action</code>&#xFF1A;&#x5E94;&#x7528;&#x6570;&#x636E;&#x7684;&#x6539;&#x53D8;&#x7684;&#x63CF;&#x8FF0;</li>
+<li><code>reducer</code>&#xFF1A;&#x51B3;&#x5B9A;&#x5E94;&#x7528;&#x6570;&#x636E;&#x65B0;&#x72B6;&#x6001;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x63A5;&#x6536;&#x5E94;&#x7528;&#x4E4B;&#x524D;&#x7684;&#x72B6;&#x6001;&#x548C;&#x4E00;&#x4E2A;action&#x8FD4;&#x56DE;&#x7684;&#x65B0;&#x7684;&#x6570;&#x636E;&#x72B6;&#x6001;</li>
+<li><code>store</code>&#xFF1A;&#x5E94;&#x7528;&#x6570;&#x636E;&#x7684;&#x5B58;&#x50A8;&#x4E2D;&#x5FC3;</li>
+<li><code>middleware</code>: redux&#x63D0;&#x4F9B;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5B8C;&#x6210;&#x4E00;&#x4E9B;flux&#x6D41;&#x7A0B;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x5236;&#xFF0C;&#x540C;&#x65F6;&#x5F62;&#x6210;&#x5176;&#x63D2;&#x4EF6;&#x4F53;&#x7CFB;</li>
+</ul>
+<h4 id="action"><a href="#action" class="headerlink" title="action"></a>action</h4><p>action&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5B9A;&#x4E49;store&#x5C06;&#x8981;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x4FE1;&#x606F;&#xFF08;&#x5BF9;&#x5E94;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x53C2;&#x6570;&#x503C;&#xFF09;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;UI&#x7EC4;&#x4EF6;&#x53D1;&#x51FA;&#x7684;&#x901A;&#x77E5;&#xFF0C;&#x544A;&#x77E5;store&#x6570;&#x636E;&#x7684;state&#x5C06;&#x8981;&#x6539;&#x53D8;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x57FA;&#x672C;&#x7684;&#x7ED3;&#x6784;&#x53EF;&#x4EE5;&#x50CF;&#x8FD9;&#x6837;&#xFF08;&#x5176;&#x5B9E;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x5B83;&#x5C31;&#x662F;&#x5B9A;&#x4E49;store&#x7684;&#x4E00;&#x4E2A;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#xFF09;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ADD_TODO = <span class="string">&quot;ADD_TODO&quot;</span>;</span><br><span class="line">store.dispatch({</span><br><span class="line">     type:ADD_TODO,   <span class="comment">//&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x540D;&#x5FC5;&#x987B;&#x8981;&#x6709;</span></span><br><span class="line">     text:<span class="string">&quot;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x7684;&#x540D;&#x5B57;&#x968F;&#x610F;&#xFF0C;&#x6309;&#x7167;&#x9700;&#x8981;&#x6765;&quot;</span></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>&#x56E0;&#x4E3A;&#x4E00;&#x4E2A;&#x5E94;&#x7528;action&#x4F1A;&#x975E;&#x5E38;&#x4E4B;&#x591A;&#xFF0C;&#x5982;&#x679C;&#x6BCF;&#x6B21;&#x5206;&#x53D1;&#x8C03;&#x7528;&#x6211;&#x4EEC;&#x90FD;&#x8981;&#x5199;&#x4E00;&#x904D;&#xFF0C;&#x80AF;&#x5B9A;&#x4E0D;&#x503C;&#x5F53;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x9AD8;&#x9636;&#x51FD;&#x6570;&#x6765;&#x4F5C;&#x4E3A;action&#x7684;&#x521B;&#x5EFA;&#x8005;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addTodo</span>(<span class="params">text</span>)</span>{</span><br><span class="line">     <span class="keyword">return</span> {</span><br><span class="line">         type:<span class="string">&quot;ADD_TODO&quot;</span>,</span><br><span class="line">         text:text</span><br><span class="line">     }</span><br><span class="line">}</span><br><span class="line">store.dispatch(addTodo(text));</span><br></pre></td></tr></table></figure>
+<h4 id="reducer"><a href="#reducer" class="headerlink" title="reducer"></a>reducer</h4><p>action&#x63CF;&#x8FF0;&#x4E86;&#x6570;&#x636E;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x4E8B;&#x5B9E;&#xFF0C;&#x4F46;&#x5374;&#x6CA1;&#x6709;&#x53BB;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x3002;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x64CD;&#x4F5C;&#x5C31;&#x843D;&#x5230;&#x4E86;reducer&#x8EAB;&#x4E0A;&#x3002;</p>
+<p>reducer&#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x5229;&#x7528;&#x4E0A;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x4FE1;&#x606F;&#x548C;action&#x4FE1;&#x606F;&#x6765;&#x4EA7;&#x751F;&#x4E0B;&#x4E00;&#x4E2A;&#x65B0;&#x72B6;&#x6001;&#x3002;</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="list">(<span class="keyword">prevState</span>,action)</span> =&gt; newState</span><br></pre></td></tr></table></figure>
+<p>&#x7EAF;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x6709;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x8F93;&#x5165;&#x6709;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x8F93;&#x51FA;&#xFF0C;&#x7EAF;&#x51FD;&#x6570;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x9075;&#x5FAA;&#x4E00;&#x4E9B;&#x7EA6;&#x675F;&#xFF1A;</p>
+<ul>
+<li>&#x4E0D;&#x5F97;&#x6539;&#x5199;&#x53C2;&#x6570;</li>
+<li>&#x4E0D;&#x80FD;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#xFF08;&#x5F02;&#x6B65;API&#xFF0C;I/O&#xFF0C;&#x8DEF;&#x7531;&#x8F6C;&#x6362;&#x7B49;&#xFF09;</li>
+<li>&#x4E0D;&#x80FD;&#x8C03;&#x7528;&#x4E0D;&#x7EAF;&#x7684;&#x51FD;&#x6570;&#xFF08;Date.noew(),Math.random()&#xFF09;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* reducer &#x63CF;&#x8FF0; </span><br><span class="line">* @param  prevState      [&#x4E4B;&#x524D;&#x72B6;&#x6001;]</span><br><span class="line">* @param  action         [redux action]</span><br><span class="line">* @return nextState      [&#x65B0;&#x72B6;&#x6001;]</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">prevState, action</span>) </span>{</span><br><span class="line">     <span class="keyword">var</span> nextState = {...};</span><br><span class="line">     <span class="keyword">switch</span>(action.type) {</span><br><span class="line">          <span class="keyword">case</span> <span class="string">&apos;ADD_TODO&apos;</span>: <span class="keyword">return</span> <span class="built_in">Object</span>.assign({}, prevState, nextState);</span><br><span class="line">          <span class="keyword">case</span> <span class="string">&apos;REMOVE_TODO&apos;</span>: <span class="keyword">return</span> <span class="built_in">Object</span>.assign({}, prevState, nextState);</span><br><span class="line">          ......</span><br><span class="line">          <span class="keyword">default</span>: <span class="keyword">return</span> prevState;</span><br><span class="line">     } </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5E94;&#x7528;&#x521A;&#x521B;&#x5EFA;&#x65F6;&#x5019;&#x7684;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4E3A;undefined&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x9700;&#x8981;&#x5BF9;&#x5B83;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8D81;&#x673A;&#x8D4B;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> initialState = {todos:...}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">prevState,action</span>)</span>{</span><br><span class="line">     <span class="keyword">if</span>(<span class="keyword">typeof</span> prevState === <span class="string">&apos;undefined&apos;</span>){</span><br><span class="line">         <span class="keyword">return</span> initialState; </span><br><span class="line">     }</span><br><span class="line">     <span class="keyword">switch</span>(action.type){...}</span><br><span class="line">     <span class="keyword">return</span> prevState;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7684;reducer&#x592A;&#x591A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5BF9;reducer&#x8FDB;&#x884C;&#x62C6;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">prevState, action</span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">filter</span>(<span class="params">prevState, action</span>) </span>{}</span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reducers = redux.combineReducers({</span><br><span class="line">     add:add,</span><br><span class="line">     filter:filter</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p><em>combineReducers&#x65B9;&#x6CD5;&#x662F;redux&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;&#x7684;&#x65B9;&#x6CD5;&#x3002;</em></p>
+<p>reducers&#x4E0D;&#x518D;&#x8D1F;&#x8D23;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x800C;&#x662F;&#x5C06;&#x8D23;&#x4EFB;&#x5206;&#x914D;&#x7ED9;&#x5176;&#x5B83;&#x7684;&#x5B50;reducer&#xFF0C;&#x6BCF;&#x4E2A;&#x5B50;reducer&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#xFF0C;&#x5404;&#x6709;&#x8D23;&#x4EFB;&#xFF0C;&#x4E5F;&#x5373;&#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x7684;&#x601D;&#x60F3;&#x3002;</p>
+<h4 id="store"><a href="#store" class="headerlink" title="store"></a>store</h4><p>store&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x4F8B;&#xFF0C;&#x5B58;&#x653E;&#x4E86;&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x6240;&#x6709;&#x72B6;&#x6001;&#x6570;&#x636E;,&#x5B83;&#x6709;&#x7EF4;&#x62A4;&#x4E00;&#x9897;&#x72B6;&#x6001;&#x6811;&#x3002;</p>
+<p>&#x5B83;&#x8FDE;&#x63A5;&#x4E86;action&#xFF0C;reducer&#x548C;&#x7EC4;&#x4EF6;&#x3002;</p>
+<p>&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4EE5;&#x4E0B;API&#xFF1A;</p>
+<pre><code>* store.getState()    &#x83B7;&#x53D6;store&#x91CC;&#x8FB9;&#x7684;&#x6570;&#x636E;
+* store.dispatch(action)  &#x89E6;&#x53D1;action&#x6765;&#x66F4;&#x65B0;&#x6570;&#x636E;&#xFF0C;&#x662F;&#x552F;&#x4E00;&#x7684;&#x89E6;&#x53D1;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x64CD;&#x4F5C;&#x7684;&#x65B9;&#x6CD5;&#x3002;
+* store.subscribe(listener) &#x8BBE;&#x7F6E;&#x76D1;&#x542C;&#x51FD;&#x6570;&#xFF0C;&#x4E00;&#x65E6;&#x67D0;&#x4E00;&#x4E2A;state&#x6539;&#x53D8;&#xFF0C;&#x5C31;&#x81EA;&#x52A8;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x8FD4;&#x56DE;&#x7684;&#x65B9;&#x6CD5;&#x53D6;&#x6D88;&#x8BA2;&#x9605;
+* store.replaceReducer(nextReducer) &#x5141;&#x8BB8;&#x4F60;&#x52A8;&#x6001;&#x7684;&#x53BB;&#x4FEE;&#x6539;&#x6B63;&#x5728;&#x8BA1;&#x7B97;state&#x7684;reducer
+</code></pre><p>store&#x662F;&#x7531;redux&#x6A21;&#x5757;&#x7684;createStore&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x5B9E;&#x73B0;&#x6765;&#x52A0;&#x6DF1;&#x7406;&#x89E3;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createStore = (reducer)=&gt;{</span><br><span class="line">     <span class="keyword">let</span> state;</span><br><span class="line">     <span class="keyword">let</span> listeners = [];</span><br><span class="line">     <span class="keyword">const</span> getState = ()=&gt;state;</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">const</span> dispatch = (action)=&gt;{</span><br><span class="line">         state = reducer(state,action);</span><br><span class="line">         listeners.forEach(listener =&gt; listener()); </span><br><span class="line">     };</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">const</span> subscribe = (listener)=&gt;{</span><br><span class="line">         listeners.push(listener);</span><br><span class="line">         <span class="keyword">return</span> ()=&gt;{</span><br><span class="line">              listeners = listeners.filter(l =&gt; l!==listener); </span><br><span class="line">         } </span><br><span class="line">     };</span><br><span class="line"></span><br><span class="line">     <span class="keyword">const</span> replaceReducer = (nextReducer)=&gt;{</span><br><span class="line">         reducer = nextReducer;</span><br><span class="line">     }</span><br><span class="line">     </span><br><span class="line">     dispatch({});</span><br><span class="line">     <span class="keyword">return</span> {getState,dispatch,subscribe,replaceReducer}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h4 id="middleware"><a href="#middleware" class="headerlink" title="middleware"></a>middleware</h4><p>middleware&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x5BF9;store.dispatch&#x8FDB;&#x884C;&#x4E86;&#x6539;&#x9020;&#xFF0C;&#x5728;&#x53D1;&#x51FA;action&#x548C;&#x6267;&#x884C;reducer&#x8FD9;&#x4E24;&#x6B65;&#x4E4B;&#x95F4;&#xFF0C;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6269;&#x5C55;&#x7684;&#x529F;&#x80FD;&#x3002;<br>&#x7B80;&#x5355;&#x7684;&#x7C7B;&#x4F3C;&#x8FD9;&#x4E2A;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> next = store.dispatch();</span><br><span class="line">store.dispatch = (action)=&gt;{</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">&apos;current action&apos;</span>,action);</span><br><span class="line">     next(action);</span><br><span class="line">     <span class="built_in">console</span>.log(<span class="string">&apos;next state&apos;</span>,store.getState());</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E2D;&#x95F4;&#x4EF6;&#x5DE5;&#x4F5C;&#x6D41;&#xFF1A;</p>
+<p><img src="https://cloud.githubusercontent.com/assets/9158841/21874630/22ca4196-d8b1-11e6-9471-b0eb34d25b02.png" alt="image"></p>
+<p>&#x4E2D;&#x95F4;&#x4EF6;&#x7528;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { applyMiddleware,createStore } <span class="keyword">from</span> <span class="string">&apos;redux&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> createLogger <span class="keyword">from</span> <span class="string">&apos;redux-logger&apos;</span>;</span><br><span class="line"><span class="keyword">const</span> logger = createLogger();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer,applyMiddleware(logger));</span><br></pre></td></tr></table></figure>
+<p><code>applyMiddleware</code>&#x662F;redux&#x63D0;&#x4F9B;&#x4F20;&#x9012;&#x4E2D;&#x95F4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x6709;&#x8BB8;&#x591A;&#x5F00;&#x6E90;&#x7684;&#x4E2D;&#x95F4;&#x4EF6;&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;&#x5F88;&#x591A;&#x4E8B;&#x60C5;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x53EF;&#x80FD;&#x4F60;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x3002;</p>
+<h3 id="Redux&#x6570;&#x636E;&#x6D41;&#x52A8;"><a href="#Redux&#x6570;&#x636E;&#x6D41;&#x52A8;" class="headerlink" title="Redux&#x6570;&#x636E;&#x6D41;&#x52A8;"></a>Redux&#x6570;&#x636E;&#x6D41;&#x52A8;</h3><p><img src="https://cloud.githubusercontent.com/assets/9158841/21874643/413f4f04-d8b1-11e6-8abe-e2de1c848fa1.png" alt="image"></p>
+<h3 id="Redux&#x4E09;&#x5927;&#x539F;&#x5219;"><a href="#Redux&#x4E09;&#x5927;&#x539F;&#x5219;" class="headerlink" title="Redux&#x4E09;&#x5927;&#x539F;&#x5219;"></a>Redux&#x4E09;&#x5927;&#x539F;&#x5219;</h3><h4 id="&#x5355;&#x4E00;&#x6570;&#x636E;&#x6E90;"><a href="#&#x5355;&#x4E00;&#x6570;&#x636E;&#x6E90;" class="headerlink" title="&#x5355;&#x4E00;&#x6570;&#x636E;&#x6E90;"></a>&#x5355;&#x4E00;&#x6570;&#x636E;&#x6E90;</h4><p>&#x6574;&#x4E2A;&#x5E94;&#x7528;&#x7684;state&#x88AB;&#x5B58;&#x50A8;&#x5728;&#x4E00;&#x68F5;&#x5BF9;&#x8C61;&#x6811;&#x79CD;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x68F5;&#x6811;&#x503C;&#x5B58;&#x5728;&#x4E8E;&#x552F;&#x4E00;&#x7684;&#x4E00;&#x4E2A;store&#x4E2D;&#x3002;</p>
+<ul>
+<li>&#x4FBF;&#x4E8E;&#x540C;&#x6784;&#x5E94;&#x7528;&#x7684;&#x5F00;&#x53D1;&#x3002;&#xFF08;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5E8F;&#x5217;&#x5316;&#x6CE8;&#x5165;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E;&#xFF09;</li>
+<li>&#x8C03;&#x8BD5;&#x5BB9;&#x6613;&#x3002;&#xFF08;&#x672C;&#x5730;&#x4FDD;&#x5B58;state&#xFF09;</li>
+</ul>
+<h4 id="State&#x662F;&#x53EA;&#x8BFB;&#x7684;"><a href="#State&#x662F;&#x53EA;&#x8BFB;&#x7684;" class="headerlink" title="State&#x662F;&#x53EA;&#x8BFB;&#x7684;"></a>State&#x662F;&#x53EA;&#x8BFB;&#x7684;</h4><p>&#x552F;&#x4E00;&#x6539;&#x53D8;state&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;dispatch action&#xFF0C;action&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x85D0;&#x89C6;&#x5DF2;&#x53D1;&#x751F;&#x4E8B;&#x4EF6;&#x7684;&#x666E;&#x901A;&#x5BF9;&#x8C61;&#x3002;</p>
+<ul>
+<li>&#x96C6;&#x4E2D;&#x5316;&#x5904;&#x7406;&#x64CD;&#x4F5C;&#xFF0C;&#x907F;&#x514D;&#x7ADE;&#x6001;&#x51FA;&#x73B0;&#x3002;</li>
+<li>action&#x53EF;&#x4EE5;&#x88AB;&#x65E5;&#x5FD7;&#x6253;&#x5370;&#xFF0C;&#x5E8F;&#x5217;&#x5316;&#xFF0C;&#x50A8;&#x5B58;&#xFF0C;&#x540E;&#x671F;&#x8C03;&#x8BD5;&#x6216;&#x6D4B;&#x8BD5;&#x56DE;&#x653E;&#x51FA;&#x6765;</li>
+</ul>
+<h4 id="&#x4F7F;&#x7528;&#x7EAF;&#x51FD;&#x6570;&#x6765;&#x4FEE;&#x6539;State"><a href="#&#x4F7F;&#x7528;&#x7EAF;&#x51FD;&#x6570;&#x6765;&#x4FEE;&#x6539;State" class="headerlink" title="&#x4F7F;&#x7528;&#x7EAF;&#x51FD;&#x6570;&#x6765;&#x4FEE;&#x6539;State"></a>&#x4F7F;&#x7528;&#x7EAF;&#x51FD;&#x6570;&#x6765;&#x4FEE;&#x6539;State</h4><p>&#x4F7F;&#x7528;&#x7EAF;&#x51FD;&#x6570;reducer&#x6765;&#x8BA1;&#x7B97;&#x65B0;&#x7684;state&#x3002;&#x800C;&#x4E14;reducer&#x53EF;&#x4EE5;&#x88AB;&#x62C6;&#x5206;&#x6210;&#x591A;&#x4E2A;&#x90E8;&#x5206;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x7B26;&#x5408;&#x5206;&#x800C;&#x6CBB;&#x4E4B;&#x7684;&#x601D;&#x60F3;&#x3002;</p>
+<h3 id="Redux&#x4F7F;&#x7528;&#x573A;&#x666F;"><a href="#Redux&#x4F7F;&#x7528;&#x573A;&#x666F;" class="headerlink" title="Redux&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>Redux&#x4F7F;&#x7528;&#x573A;&#x666F;</h3><p>&#x4F60;&#x53EF;&#x80FD;&#x4E0D;&#x9700;&#x8981;redux&#xFF1A;</p>
+<ul>
+<li>&#x7528;&#x6237;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x975E;&#x5E38;&#x7B80;&#x5355;</li>
+<li>&#x7528;&#x6237;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x534F;&#x4F5C;</li>
+<li>&#x4E0D;&#x9700;&#x8981;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5927;&#x91CF;&#x4EA4;&#x4E92;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x4F7F;&#x7528;WebSocket</li>
+<li>&#x89C6;&#x56FE;&#x5C42;&#xFF08;View&#xFF09;&#x53EA;&#x4ECE;&#x5355;&#x4E00;&#x6765;&#x6E90;&#x83B7;&#x53D6;&#x6570;&#x636E;</li>
+</ul>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4;UI&#x5C42;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x6CA1;&#x6709;&#x5F88;&#x591A;&#x4E92;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x90FD;&#x4E0D;&#x8BB8;&#x8981;Redux&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x53CD;&#x800C;&#x4F1A;&#x589E;&#x52A0;&#x5E94;&#x7528;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6709;&#x4EE5;&#x4E0B;&#x573A;&#x666F;&#x5219;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528;redux&#xFF08;&#x7531;&#x6B64;&#x8BF4;&#x660E;&#xFF0C;redux&#x5E76;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x6709;&#x5176;&#x5B83;&#x7684;&#x4E00;&#x4E9B;&#x7ED3;&#x6784;&#x6765;&#x4EE3;&#x66FF;&#xFF09;</p>
+<ul>
+<li>&#x67D0;&#x4E2A;&#x7EC4;&#x4EF6;&#x72B6;&#x6001;&#x9700;&#x8981;&#x5171;&#x4EAB;&#x7ED9;&#x5176;&#x5B83;&#x7EC4;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;&#x5144;&#x5F1F;&#x5B50;&#x7EC4;&#x4EF6;&#xFF09;</li>
+<li>&#x67D0;&#x4E2A;&#x72B6;&#x6001;&#x9700;&#x8981;&#x5728;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x62FF;&#x5230;&#xFF08;&#x7C7B;&#x4F3C;&#x7528;&#x6237;&#x7684;&#x767B;&#x5F55;&#x72B6;&#x6001;&#x5728;&#x591A;&#x4E2A;&#x9875;&#x9762;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x7B49;&#xFF09;</li>
+<li>&#x4E00;&#x4EFD;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x6539;&#x53D8;&#x5168;&#x5C40;&#x72B6;&#x6001;</li>
+<li>&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x6539;&#x53D8;&#x53E6;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E24;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x5E76;&#x6CA1;&#x6709;&#x201C;&#x8840;&#x7F18;&#x5173;&#x7CFB;&#x201D;</li>
+</ul>
+<h3 id="React-redux"><a href="#React-redux" class="headerlink" title="React-redux"></a>React-redux</h3><p>redux&#x548C;react&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#x3002;redux&#x652F;&#x6301;React&#xFF0C;Vue&#xFF0C;Angular&#xFF0C;Ember&#xFF0C;jQuery&#x751A;&#x81F3;&#x539F;&#x751F;JavaScript&#x3002;</p>
+<p>&#x5B89;&#x88C5;&#xFF1A;<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="tag">i</span> react-redux --save</span><br></pre></td></tr></table></figure></p>
+<p>&#x9996;&#x5148;&#x4E86;&#x89E3;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x601D;&#x60F3;&#xFF0C;&#x5BB9;&#x5668;&#x7EC4;&#x4EF6;&#x548C;&#x5C55;&#x793A;&#x7EC4;&#x4EF6;&#xFF08;&#x7EAF;&#x7EC4;&#x4EF6;&#xFF09;&#x76F8;&#x5206;&#x79BB;&#x7684;&#x5F00;&#x53D1;&#x601D;&#x60F3;&#x3002;</p>
+<p><img src="https://cloud.githubusercontent.com/assets/9158841/21874675/736524a4-d8b1-11e6-90fb-f38a8545ae1d.png" alt="image"></p>
+<p>&#x4E5F;&#x5C31;&#x662F;UI&#x7EC4;&#x4EF6;&#x590D;&#x5236;UI&#x7684;&#x5448;&#x73B0;&#xFF0C;&#x5BB9;&#x5668;&#x7EC4;&#x4EF6;&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x548C;&#x903B;&#x8F91;&#x3002;</p>
+<p>react-redux&#x63D0;&#x4F9B;connect()&#x65B9;&#x6CD5;&#xFF0C;&#x7528;&#x6765;&#x8FDE;&#x63A5;UI&#x7EC4;&#x4EF6;&#x548C;&#x5BB9;&#x5668;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> {connect} <span class="keyword">from</span> <span class="string">&apos;react-redux&apos;</span>;</span><br><span class="line"><span class="keyword">const</span> VisibleTodoList = connect(</span><br><span class="line">     mapStateToProps,</span><br><span class="line">     mapDispatchToProps</span><br><span class="line">)(TodoList);</span><br></pre></td></tr></table></figure>
+<p>mapStateToProps()  &#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;state&#x5BF9;&#x8C61;&#xFF08;&#x5916;&#x90E8;&#x7684;&#xFF0C;UI&#x7EC4;&#x4EF6;&#x7684;state&#xFF09;&#x5230;props&#x5BF9;&#x8C61;&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToProps = (state)=&gt;{</span><br><span class="line">     <span class="keyword">return</span>{</span><br><span class="line">         todos: appTodos(state.todos,state.text)</span><br><span class="line">     }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8BA2;&#x9605;store&#xFF0C;&#x5F53;state&#x66F4;&#x65B0;&#x65F6;&#x81EA;&#x52A8;&#x6267;&#x884C;&#xFF0C;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;UI&#x7EC4;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x89E6;&#x53D1;UI&#x7684;rerender&#x3002;</p>
+<p>connect&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x65F6;UI&#x7EC4;&#x4EF6;&#x4E0D;&#x8BA2;&#x9605;store&#xFF0C;store&#x66F4;&#x65B0;&#x4E0D;&#x4F1A;&#x5F15;&#x8D77;UI&#x7EC4;&#x4EF6;&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<p>mapDispatchToProps()  &#x5EFA;&#x7ACB;UI&#x7EC4;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#x5230;store.dispatch&#x7684;&#x6620;&#x5C04;&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x54EA;&#x4E9B;&#x7528;&#x6237;&#x7684;&#x64CD;&#x4F5C;&#x5E94;&#x8BE5;&#x5F53;&#x505A;action&#x4F20;&#x7ED9;store&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x51FD;&#x6570;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6620;&#x5C04;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;UI&#x7EC4;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#x600E;&#x6837;&#x53D1;&#x51FA;Action&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapDispatchToProps = (dispatch,ownProps)=&gt;{</span><br><span class="line">     <span class="keyword">return</span> {</span><br><span class="line">          onClick:()=&gt;{</span><br><span class="line">              dispatch({</span><br><span class="line">                   type:<span class="string">&apos;ADD_TODO&apos;</span>,</span><br><span class="line">                   text:ownProps.text </span><br><span class="line">              }) </span><br><span class="line">          }</span><br><span class="line">     }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x952E;&#x540D;&#x5E94;&#x8BE5;&#x5BF9;&#x5E94;UI&#x7EC4;&#x4EF6;&#x7684;&#x540C;&#x540D;&#x53C2;&#x6570;&#xFF0C;&#x952E;&#x503C;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4F1A;&#x88AB;&#x5F53;&#x505A;Action creator&#xFF0C;&#x8FD4;&#x56DE;&#x7684;Action&#x5219;&#x7531;redux&#x81EA;&#x52A8;&#x53D1;&#x51FA;&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapDispatchToProps = {</span><br><span class="line">     onClick:(filter) =&gt;{</span><br><span class="line">         type:<span class="string">&apos;ADD_TODO&apos;</span>,</span><br><span class="line">         text:text </span><br><span class="line">     }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8BA2;&#x9605;store&#xFF0C;&#x5F53;state&#x66F4;&#x65B0;&#x65F6;&#x81EA;&#x52A8;&#x6267;&#x884C;&#xFF0C;&#x91CD;&#x65B0;&#x8BA1;&#x7B97;UI&#x7EC4;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x89E6;&#x53D1;UI&#x7684;rerender&#x3002;</p>
+<p>connect&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x65F6;UI&#x7EC4;&#x4EF6;&#x4E0D;&#x8BA2;&#x9605;store&#xFF0C;store&#x66F4;&#x65B0;&#x4E0D;&#x4F1A;&#x5F15;&#x8D77;UI&#x7EC4;&#x4EF6;&#x7684;&#x66F4;&#x65B0;&#x3002;</p>
+<h4 id="lt-Provider-gt-&#x7EC4;&#x4EF6;"><a href="#lt-Provider-gt-&#x7EC4;&#x4EF6;" class="headerlink" title="&lt;Provider&gt;&#x7EC4;&#x4EF6;"></a><code>&lt;Provider&gt;</code>&#x7EC4;&#x4EF6;</h4><p>connect&#x65B9;&#x6CD5;&#x751F;&#x6210;&#x5BB9;&#x5668;&#x7EC4;&#x4EF6;&#x4E4B;&#x540E;&#xFF0C;&#x9700;&#x8981;&#x8BA9;&#x5BB9;&#x5668;&#x7EC4;&#x4EF6;&#x83B7;&#x5F97;state&#x5BF9;&#x8C61;&#xFF0C;&#x624D;&#x80FD;&#x751F;&#x6210;UI&#x7EC4;&#x4EF6;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<p>react-redux&#x63D0;&#x4F9B;Provider&#x7EC4;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x5BB9;&#x5668;&#x62FF;&#x5230;state&#x3002;</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> { Provider } <span class="keyword">from</span> <span class="string">&apos;react-redux&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> { createStore } <span class="keyword">from</span> <span class="string">&apos;redux&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> todoApp <span class="keyword">from</span> <span class="string">&apos;./reducers/todoApp&apos;</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&apos;./components/App&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> store = createStore(todoApp);</span><br><span class="line"></span><br><span class="line">render(</span><br><span class="line">     <span class="xml"><span class="tag">&lt;<span class="title">Provider</span> <span class="attribute">store</span>=<span class="value">{store}</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">App</span>/&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="title">Provider</span>&gt;</span>,</span><br><span class="line">     document.getElementById(&apos;app&apos;)</span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<p>&#x53E6;&#x5916;&#xFF0C;Provider&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x548C;&#x8DEF;&#x7531;Router&#x642D;&#x914D;&#x4F7F;&#x7528;&#x65F6;&#x662F;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/React/" rel="tag">#React</a>
+          
+            <a href="/tags/Redux/" rel="tag">#Redux</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/08/浏览器从输入网址到显示都发生了些什么？/" rel="next" title="浏览器从输入网址到显示都发生了些什么？">
+                <i class="fa fa-chevron-left"></i> 浏览器从输入网址到显示都发生了些什么？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/08/Redux是什么？/"
+           data-title="Redux是什么？" data-url="http://mmzer.net/2017/02/08/Redux是什么？/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/Mmzer.jpg"
+               alt="Mmzer" />
+          <p class="site-author-name" itemprop="name">Mmzer</p>
+          <p class="site-description motion-element" itemprop="description">默默者，持之久远也！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/mmzer" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://segmentfault.com/u/mmzer" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> SF社区
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.html-js.com/user" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 前端乱炖
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+                <a href="http://zhangyihua.me/" target="_blank">yihua</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#flux"><span class="nav-number">1.</span> <span class="nav-text">flux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式编程"><span class="nav-number">2.</span> <span class="nav-text">函数式编程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux设计思想"><span class="nav-number">3.</span> <span class="nav-text">Redux设计思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux概念和API"><span class="nav-number">4.</span> <span class="nav-text">Redux概念和API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#action"><span class="nav-number">4.1.</span> <span class="nav-text">action</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reducer"><span class="nav-number">4.2.</span> <span class="nav-text">reducer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#store"><span class="nav-number">4.3.</span> <span class="nav-text">store</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#middleware"><span class="nav-number">4.4.</span> <span class="nav-text">middleware</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux数据流动"><span class="nav-number">5.</span> <span class="nav-text">Redux数据流动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux三大原则"><span class="nav-number">6.</span> <span class="nav-text">Redux三大原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单一数据源"><span class="nav-number">6.1.</span> <span class="nav-text">单一数据源</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#State是只读的"><span class="nav-number">6.2.</span> <span class="nav-text">State是只读的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用纯函数来修改State"><span class="nav-number">6.3.</span> <span class="nav-text">使用纯函数来修改State</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux使用场景"><span class="nav-number">7.</span> <span class="nav-text">Redux使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-redux"><span class="nav-number">8.</span> <span class="nav-text">React-redux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-Provider-gt-组件"><span class="nav-number">8.1.</span> <span class="nav-text"><Provider>组件</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mmzer</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.scheme !== 'Pisces' && (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always')) {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"mmzer"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+
+</body>
+</html>
